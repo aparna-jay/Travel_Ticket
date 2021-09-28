@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Travel_Ticket">
-        <activity android:name=".PaymentInformationActivity"></activity>
+        <activity android:name=".UserProfileActivity"></activity>
+        <activity android:name=".PaymentInformationActivity" />
         <activity android:name=".RegistrationActivity" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".MainActivity">
