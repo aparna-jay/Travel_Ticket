@@ -53,7 +53,7 @@
         app:layout_constraintVertical_bias="0.442" />
 
     <EditText
-        android:id="@+id/password"
+        android:id="@+id/cpassword"
         android:layout_width="298dp"
         android:layout_height="47dp"
         android:background="@drawable/rounded_corners"
@@ -72,7 +72,7 @@
         app:layout_constraintVertical_bias="0.763" />
 
     <EditText
-        android:id="@+id/password2"
+        android:id="@+id/password"
         android:layout_width="298dp"
         android:layout_height="47dp"
         android:background="@drawable/rounded_corners"
@@ -91,7 +91,7 @@
         app:layout_constraintVertical_bias="0.66" />
 
     <EditText
-        android:id="@+id/username"
+        android:id="@+id/type"
         android:layout_width="298dp"
         android:layout_height="47dp"
         android:background="@drawable/rounded_corners"
@@ -110,7 +110,7 @@
         app:layout_constraintVertical_bias="0.334" />
 
     <EditText
-        android:id="@+id/username2"
+        android:id="@+id/username"
         android:layout_width="298dp"
         android:layout_height="47dp"
         android:background="@drawable/rounded_corners"
