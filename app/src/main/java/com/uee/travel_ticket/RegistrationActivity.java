@@ -104,10 +104,10 @@ public class RegistrationActivity extends AppCompatActivity {
 
             //getting a unique id using push().getKey() method
             //it will create a unique id and we will use it as the Primary Key for our Artist
-            String id = databaseUsers.push().getKey();
+            String id = name;
 
             //creating an Artist Object
-            UserModel user = new UserModel(id, name,userType,email1,phone1,password1);
+            UserModel user = new UserModel(id, name,userType,email1,phone1,password1, 0.00);
 
             //Saving the Artist
             databaseUsers.child(id).setValue(user);
