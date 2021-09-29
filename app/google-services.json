@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "199182177339",
+    "firebase_url": "https://csse-project-final-default-rtdb.firebaseio.com",
+    "project_id": "csse-project-final",
+    "storage_bucket": "csse-project-final.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:199182177339:android:36f6e44f5e37e3d03a381e",
+        "android_client_info": {
+          "package_name": "com.uee.travel_ticket"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "199182177339-2f3dltjic1njmggf70pnin86mshdb1mv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCImwcJ1Q3C8WZiCv7caQUr5G9wJwqCLAI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "199182177339-2f3dltjic1njmggf70pnin86mshdb1mv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
