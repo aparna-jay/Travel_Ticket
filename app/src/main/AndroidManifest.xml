@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Travel_Ticket">
         <activity
+            android:name=".journeyActivity"
+            android:exported="true" />
+        <activity
             android:name=".CreditActivity"
             android:exported="true" />
         <activity android:name=".UserProfileActivity" />
