@@ -11,14 +11,16 @@
         android:theme="@style/Theme.Travel_Ticket">
         <activity android:name=".UserProfileActivity"></activity>
         <activity android:name=".PaymentInformationActivity" />
-        <activity android:name=".RegistrationActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".RegistrationActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".MainActivity">
+
         </activity>
     </application>
 
