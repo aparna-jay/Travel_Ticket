@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">Travel_Ticket</string>
-
-
+    <string name="qr_code">qr_code</string>
+    <string name="enter_your_info">Enter your info</string>
+    <string name="generate_qr_code">Generate QR Code</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="autoCompleteTextView5">USD</string>
