@@ -20,6 +20,12 @@ import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TextView;
 
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.uee.travel_ticket.Models.UserModel;
 import com.uee.travel_ticket.Models.journeyclass;
 
 import java.util.ArrayList;
@@ -28,24 +34,29 @@ import java.util.List;
 
 public class journeyActivity extends AppCompatActivity {
 
-    String names[] = {"Apple", "Banana", "Kiwi", "Oranges", "Watermelon"};
-    String emails[] = {"This is apple", "This is banana", "This is kiwi", "This is oranges", "This is watermelon"};
+//    String names[] = {"Apple", "Banana", "Kiwi", "Oranges", "Watermelon"};
+//    String emails[] = {"This is apple", "This is banana", "This is kiwi", "This is oranges", "This is watermelon"};
     List<journeyclass> itemsModelList = new ArrayList<>();
     ListView listView;
     CustomAdapter customAdapter;
+    DatabaseReference databaseUsers;
+    journeyclass journeyM;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_journey);
-
         listView = findViewById(R.id.listview);
+        databaseUsers = FirebaseDatabase.getInstance().getReference("hh");
+        itemsModelList.clear();
 
-        for (int i = 0; i < names.length; i++) {
-            journeyclass itemsModel = new journeyclass(names[i], emails[i]);
-            itemsModelList.add(itemsModel);
-        }
+
+
+//        for (int i = 0; i < names.length; i++) {
+//            journeyclass itemsModel = new journeyclass(names[i], emails[i]);
+//            itemsModelList.add(itemsModel);
+//        }
         customAdapter = new CustomAdapter(itemsModelList, this);
         listView.setAdapter(customAdapter);
 
@@ -80,6 +91,39 @@ public class journeyActivity extends AppCompatActivity {
 //            return super.onOptionsItemSelected(item);
 //        }
 //
+    }
+
+
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        //attaching value event listener
+        databaseUsers.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                //clearing the previous artist list
+                itemsModelList.clear();
+
+                //iterating through all the nodes
+                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                    //getting artist
+                    journeyclass user = postSnapshot.getValue(journeyclass.class);
+                    //adding artist to the list
+                    Log.e("UserList", " " + user.getName());
+                    itemsModelList.add(user);
+                }
+//                //creating adapter
+//                UserList artistAdapter = new ArtistList(MainActivity.this, artists);
+//                //attaching adapter to the listview
+//                listViewArtists.setAdapter(artistAdapter);
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+
+            }
+        });
     }
 
 

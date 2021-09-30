@@ -5,17 +5,17 @@ public class journeyclass {
     double price;
 
 
-//    public journeyclass(String name, String start, String end, double price) {
-//        this.name = name;
-//        this.start = start;
-//        this.end = end;
-//        this.price = price;
-//    }
-
-    public journeyclass(String name, String start) {
+    public journeyclass(String name, String start, String end, double price) {
         this.name = name;
         this.start = start;
+        this.end = end;
+        this.price = price;
     }
+
+//    public journeyclass(String name, String start) {
+//        this.name = name;
+//        this.start = start;
+//    }
 
     public String getName() {
         return name;
