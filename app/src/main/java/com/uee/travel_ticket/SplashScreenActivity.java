@@ -5,9 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.ImageView;
-
-import com.airbnb.lottie.LottieAnimationView;
+//import android.widget.ImageView;
+//
+//import com.airbnb.lottie.LottieAnimationView;
 
 public class SplashScreenActivity extends AppCompatActivity {
 

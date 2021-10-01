@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.uee.travel_ticket">
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -11,6 +14,7 @@
         android:theme="@style/Theme.Travel_Ticket">
         <activity android:name=".journeyActivity" android:exported="true" >
         </activity>
+        <activity android:name=".GetLocationActivity"></activity>
         <activity
             android:name=".SplashScreenActivity"
             android:exported="true" />
