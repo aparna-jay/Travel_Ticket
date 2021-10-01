@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SplashScreenActivity"
-    android:background="#23557C">
+    android:background="#FFFFFF">
 
     <!--    android:background="#23557C"-->
 
@@ -47,7 +47,7 @@
         android:layout_width="225dp"
         android:layout_height="68dp"
         android:text="Welcome!"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="30sp"
         android:textStyle="bold"
         android:textAlignment="center"
