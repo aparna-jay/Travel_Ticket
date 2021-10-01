@@ -11,14 +11,10 @@
             android:title="Home" />
 
         <item
-            android:id="@+id/nav_cart"
-            android:icon="@drawable/cart_icon"
-            android:title="Cart" />
+            android:id="@+id/nav_journey"
+            android:icon="@drawable/journey_icon"
+            android:title="Journey" />
 
-        <item
-            android:id="@+id/nav_favourites"
-            android:icon="@drawable/favorite_icon"
-            android:title="Favourite" />
 
     </group>
 
@@ -31,6 +27,16 @@
                     android:id="@+id/nav_profile"
                     android:icon="@drawable/account_icon"
                     android:title="Profile" />
+
+                <item
+                    android:id="@+id/nav_payment"
+                    android:icon="@drawable/payment_icon"
+                    android:title="Payment" />
+
+                <item
+                    android:id="@+id/nav_acc_balance"
+                    android:icon="@drawable/balance_icon"
+                    android:title="Account Balance" />
 
                 <item
                     android:id="@+id/nav_login"
