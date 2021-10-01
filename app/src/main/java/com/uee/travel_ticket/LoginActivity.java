@@ -23,6 +23,7 @@ public class LoginActivity extends AppCompatActivity {
     EditText username, password;
     DatabaseReference databaseUsers;
 //    login_to userprofile;
+    public static String loggedUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -75,7 +76,8 @@ public class LoginActivity extends AppCompatActivity {
 
 
                     if (passwordFromDB.equals(userEnteredPassword)) {
-                        Toast.makeText(getApplicationContext(), "valied user", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getApplicationContext(), "valid user", Toast.LENGTH_SHORT).show();
+                        loggedUser = username.getText().toString();
                         Intent intent = new Intent(LoginActivity.this, UserProfileActivity.class);
                         intent.putExtra("user",username.getText().toString());
                         startActivity(intent);

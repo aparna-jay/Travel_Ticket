@@ -37,18 +37,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.296" />
 
-    <ImageView
-        android:id="@+id/imageView18"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.001"
-        app:srcCompat="@drawable/bgimg" />
-
     <Button
         android:id="@+id/button5"
         android:layout_width="129dp"
@@ -79,7 +67,7 @@
         android:id="@+id/textView12"
         android:layout_width="188dp"
         android:layout_height="31dp"
-        android:text="Cridit Balance"
+        android:text="Credit Balance"
         android:textColor="@color/black"
         android:textSize="19sp"
         android:textStyle="bold"
