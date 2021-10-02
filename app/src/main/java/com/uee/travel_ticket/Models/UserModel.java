@@ -11,7 +11,7 @@ public class UserModel {
     public String email;
     public String phone;
     public String password;
-    public double accBalance;
+    public String accBalance;
 
     public String getType() {
         return type;
@@ -21,16 +21,9 @@ public class UserModel {
         this.type = type;
     }
 
-    public double getAccBalance() {
-        return accBalance;
-    }
-
-    public void setAccBalance(double accBalance) {
-        this.accBalance = accBalance;
-    }
 
     //
-    public UserModel(String id, String username, String type, String email, String phone, String password, double accBalance) {
+    public UserModel(String id, String username, String type, String email, String phone, String password, String accBalance) {
 //        public User(String id, String username) {
             this.id = id;
         this.username = username;
@@ -83,5 +76,13 @@ public class UserModel {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getAccBalance() {
+        return accBalance;
+    }
+
+    public void setAccBalance(String accBalance) {
+        this.accBalance = accBalance;
     }
 }

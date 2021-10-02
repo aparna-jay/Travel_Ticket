@@ -34,7 +34,9 @@
             android:exported="true" />
         <activity android:name=".UserProfileActivity" />
         <activity android:name=".PaymentInformationActivity" />
-        <activity android:name=".RegistrationActivity" />
+        <activity android:name=".RegistrationActivity" >
+
+        </activity>
         <activity android:name=".LoginActivity" />
         <activity
             android:name=".MainActivity"

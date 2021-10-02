@@ -25,8 +25,18 @@ import android.util.Log;
 import android.view.Display;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.zxing.WriterException;
+import com.uee.travel_ticket.Models.UserModel;
 
 import java.io.IOException;
 import java.util.List;
@@ -39,8 +49,13 @@ public class CreditActivity extends AppCompatActivity {
     private ImageView qrCodeIV;
     QRGEncoder qrgEncoder;
     Bitmap bitmap;
-    String QRCode = "Credit balance = 10,000";
+//    String QRCode = "Credit balance = 10,000";
+    String QRCode;
     String address;
+
+    String user;
+    private FirebaseUser fUser;
+    private DatabaseReference reference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +69,42 @@ public class CreditActivity extends AppCompatActivity {
         }
 
         generateQRCode();
+
+        //get credit details
+        if (LoginActivity.loggedUser == null){
+            user = "null";
+        }
+        else {
+            user = LoginActivity.loggedUser;
+        }
+        Log.e("Logged User", user);
+
+        fUser = FirebaseAuth.getInstance().getCurrentUser();
+        reference = FirebaseDatabase.getInstance().getReference("users");
+
+
+
+        final TextView userCreditT = (TextView) findViewById(R.id.credit);
+
+        reference.child(user);
+        reference.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                UserModel userProfile = snapshot.getValue(UserModel.class);
+
+                if (userProfile != null) {
+                    String accBalance = userProfile.accBalance;
+                    userCreditT.setText(accBalance);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+                Toast.makeText(CreditActivity.this, "Error!", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
     }
 
     public void generateQRCode(){

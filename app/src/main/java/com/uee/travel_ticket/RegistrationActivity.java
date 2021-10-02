@@ -107,7 +107,7 @@ public class RegistrationActivity extends AppCompatActivity {
             String id = name;
 
             //creating an Artist Object
-            UserModel user = new UserModel(id, name,userType,email1,phone1,password1, 0.00);
+            UserModel user = new UserModel(id, name,userType,email1,phone1,password1, "0");
 
             //Saving the Artist
             databaseUsers.child(id).setValue(user);
