@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class RegistrationActivity extends AppCompatActivity {
-    TextView username, email, type, phone, password;
+    TextView username, email, phone, password, address, nic, cpassword;
     List<UserModel> users;
     DatabaseReference databaseUsers;
     Button addUser;
@@ -32,12 +32,12 @@ public class RegistrationActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
-        databaseUsers = FirebaseDatabase.getInstance().getReference("users");
+        databaseUsers = FirebaseDatabase.getInstance().getReference("LocalPassnger");
         username = (TextView) findViewById(R.id.username);
-        type = (TextView) findViewById(R.id.type);
-        email = (TextView) findViewById(R.id.email);
-        phone = (TextView) findViewById(R.id.phone);
+        address = (TextView) findViewById(R.id.address);
+        nic = (TextView) findViewById(R.id.nic);
         password = (TextView) findViewById(R.id.password);
+        cpassword = (TextView) findViewById(R.id.cpassword);
         addUser = (Button) findViewById(R.id.addUser);
 
         users = new ArrayList<>();
@@ -67,8 +67,8 @@ public class RegistrationActivity extends AppCompatActivity {
                     //getting artist
                     UserModel user = postSnapshot.getValue(UserModel.class);
                     //adding artist to the list
-                    Log.e("UserList", " " + user.getUsername()+ user.getType()+ user.getEmail()
-                            + user.getPhone()+ user.getPassword());
+//                    Log.e("UserList", " " + user.getUsername()+ user.getType()+ user.getEmail()
+                      //      + user.getPhone()+ user.getPassword());
                     users.add(user);
                 }
 //                //creating adapter
@@ -93,9 +93,8 @@ public class RegistrationActivity extends AppCompatActivity {
     private void addUsers() {
         //getting the values to save
         String name = username.getText().toString().trim();
-        String userType = type.getText().toString().trim();
-        String email1 = email.getText().toString().trim();
-        String phone1 = phone.getText().toString().trim();
+        String address1 = address.getText().toString().trim();
+        String nic1 = nic.getText().toString().trim();
         String password1 = password.getText().toString().trim();
         //       String genre = spinnerGenre.getSelectedItem().toString();
 
@@ -107,17 +106,17 @@ public class RegistrationActivity extends AppCompatActivity {
             String id = name;
 
             //creating an Artist Object
-            UserModel user = new UserModel(id, name,userType,email1,phone1,password1, "0");
+            UserModel user = new UserModel(id, name,address1, nic1,password1, 0.00);
 
             //Saving the Artist
             databaseUsers.child(id).setValue(user);
 
             //setting edittext to blank again
             username.setText("");
-            type.setText("");
-            email.setText("");
-            phone.setText("");
+            address.setText("");
+            nic.setText("");
             password.setText("");
+            cpassword.setText("");
 
             //displaying a success toast
             Toast.makeText(this, "User added", Toast.LENGTH_LONG).show();

@@ -14,15 +14,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Travel_Ticket">
         <activity android:name=".AllJourneysActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".journeyActivity"
-            android:exported="true">
 
         </activity>
         <activity android:name=".GetLocationActivity" />
@@ -34,13 +25,19 @@
             android:exported="true" />
         <activity android:name=".UserProfileActivity" />
         <activity android:name=".PaymentInformationActivity" />
-        <activity android:name=".RegistrationActivity" >
+        <activity android:name=".RegistrationActivity" />
+        <activity android:name=".LoginActivity" >
 
         </activity>
-        <activity android:name=".LoginActivity" />
         <activity
             android:name=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
