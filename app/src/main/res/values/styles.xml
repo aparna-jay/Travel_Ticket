@@ -6,7 +6,7 @@
         <item name="colorAccent">@color/purple_500</item>
     </style>
 
-    <color name="colorAccent">#C9B8B7</color>
+    <color name="colorAccent">#0099CC</color>
 
     <style name="AppTheme.NoActionBar">
         <item name="windowActionBar">false</item>

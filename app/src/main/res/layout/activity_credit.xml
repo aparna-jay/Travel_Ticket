@@ -79,11 +79,10 @@
         app:layout_constraintVertical_bias="0.687" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/credit"
         android:layout_width="233dp"
         android:layout_height="98dp"
         android:ems="10"
-        android:hint="1000.00"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
