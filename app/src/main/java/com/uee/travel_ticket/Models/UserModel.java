@@ -10,18 +10,20 @@ public class UserModel {
     public String address;
     public String nic;
     public String password;
+    public String accStatus;
     public double accBalance;
 
     public UserModel() {
     }
 
-    public UserModel(String id, String name, String address, String nic, String password, double accBalance) {
+    public UserModel(String id, String name, String address, String nic, String password, double accBalance, String accStatus) {
         this.id = id;
         this.name = name;
         this.address = address;
         this.nic = nic;
         this.password = password;
         this.accBalance = accBalance;
+        this.accStatus = accStatus;
     }
 
     public String getId() {
@@ -54,6 +56,14 @@ public class UserModel {
 
     public void setNic(String nic) {
         this.nic = nic;
+    }
+
+    public String getAccStatus() {
+        return accStatus;
+    }
+
+    public void setAccStatus(String accStatus) {
+        this.accStatus = accStatus;
     }
 
     public String getPassword() {
