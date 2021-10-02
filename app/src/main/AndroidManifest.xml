@@ -15,13 +15,15 @@
         android:theme="@style/Theme.Travel_Ticket">
         <activity
             android:name=".ForeignRegisterActivity"
-            android:exported="true" />
-        <activity android:name=".AllJourneysActivity">
+            android:exported="true" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity android:name=".AllJourneysActivity">
+
         </activity>
 
         <activity android:name=".GetLocationActivity" />
