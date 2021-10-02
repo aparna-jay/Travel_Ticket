@@ -2,6 +2,7 @@ package com.uee.travel_ticket;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -24,7 +25,7 @@ public class RegistrationActivity extends AppCompatActivity {
     TextView username, email, phone, password, address, nic, cpassword;
     List<UserModel> users;
     DatabaseReference databaseUsers;
-    Button addUser;
+    Button addUser, login;
     UserModel user;
 
 
@@ -39,6 +40,7 @@ public class RegistrationActivity extends AppCompatActivity {
         password = (TextView) findViewById(R.id.password);
         cpassword = (TextView) findViewById(R.id.cpassword);
         addUser = (Button) findViewById(R.id.addUser);
+        login = (Button) findViewById(R.id.login);
 
         users = new ArrayList<>();
 
@@ -46,6 +48,13 @@ public class RegistrationActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 addUsers();
+            }
+        });
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(i);
             }
         });
     }
@@ -106,7 +115,7 @@ public class RegistrationActivity extends AppCompatActivity {
             String id = name;
 
             //creating an Artist Object
-            UserModel user = new UserModel(id, name,address1, nic1,password1, 0.00);
+            UserModel user = new UserModel(id, name,address1, nic1,password1, 0.00, "hold");
 
             //Saving the Artist
             databaseUsers.child(id).setValue(user);

@@ -3,8 +3,12 @@ package com.uee.travel_ticket;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,6 +32,8 @@ public class UserProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_profile);
 
+        ImageButton back = (ImageButton) findViewById(R.id.back);
+
         if (LoginActivity.loggedUser == null){
             user = "null";
         }
@@ -35,6 +41,15 @@ public class UserProfileActivity extends AppCompatActivity {
             user = LoginActivity.loggedUser;
         }
         Log.e("Logged User", user);
+
+        //go to the create account acctivity.
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new HomeFragment()).commit();
+            }
+        });
 
         fUser = FirebaseAuth.getInstance().getCurrentUser();
         reference = FirebaseDatabase.getInstance().getReference("users");
