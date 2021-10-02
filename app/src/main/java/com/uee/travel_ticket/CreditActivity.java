@@ -93,8 +93,8 @@ public class CreditActivity extends AppCompatActivity {
                 UserModel userProfile = snapshot.getValue(UserModel.class);
 
                 if (userProfile != null) {
-                    String accBalance = userProfile.accBalance;
-                    userCreditT.setText(accBalance);
+//                    String accBalance = userProfile.accBalance;
+//                    userCreditT.setText(accBalance);
                 }
             }
 

@@ -3,15 +3,27 @@ package com.uee.travel_ticket.Models;
 public class journeyclass {
   String JourneyID, Date, Time, End, JourneyStatus, PassengerID, PaymentStatus, Start;
 
+
+    public journeyclass() {
+    }
+
+    public journeyclass(String journeyID, String date, String time, String end, String journeyStatus, String passengerID, String paymentStatus, String start) {
+        JourneyID = journeyID;
+        Date = date;
+        Time = time;
+        End = end;
+        JourneyStatus = journeyStatus;
+        PassengerID = passengerID;
+        PaymentStatus = paymentStatus;
+        Start = start;
+    }
+
     public String getJourneyID() {
         return JourneyID;
     }
 
     public void setJourneyID(String journeyID) {
         JourneyID = journeyID;
-    }
-
-    public journeyclass() {
     }
 
     public String getDate() {
@@ -70,14 +82,4 @@ public class journeyclass {
         Start = start;
     }
 
-    public journeyclass(String journeyID, String date, String time, String end, String journeyStatus, String passengerID, String paymentStatus, String start) {
-        JourneyID = journeyID;
-        Date = date;
-        Time = time;
-        End = end;
-        JourneyStatus = journeyStatus;
-        PassengerID = passengerID;
-        PaymentStatus = paymentStatus;
-        Start = start;
-    }
 }

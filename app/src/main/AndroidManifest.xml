@@ -23,9 +23,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".journeyActivity"
-            android:exported="true"></activity>
+
         <activity android:name=".GetLocationActivity" />
         <activity
             android:name=".SplashScreenActivity"
@@ -35,11 +33,13 @@
             android:exported="true" />
         <activity android:name=".UserProfileActivity" />
         <activity android:name=".PaymentInformationActivity" />
-        <activity android:name=".RegistrationActivity"></activity>
+        <activity android:name=".RegistrationActivity" >
+
+        </activity>
         <activity android:name=".LoginActivity" />
         <activity
             android:name=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

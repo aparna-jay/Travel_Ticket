@@ -6,36 +6,22 @@ import com.google.firebase.database.IgnoreExtraProperties;
 public class UserModel {
 
     public String id;
-    public String username;
-    public String type;
-    public String email;
-    public String phone;
+    public String name;
+    public String address;
+    public String nic;
     public String password;
-    public String accBalance;
-
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
-
-
-    //
-    public UserModel(String id, String username, String type, String email, String phone, String password, String accBalance) {
-//        public User(String id, String username) {
-            this.id = id;
-        this.username = username;
-        this.type = type;
-        this.email = email;
-        this.phone = phone;
-        this.password = password;
-        this.accBalance = accBalance;
-    }
+    public double accBalance;
 
     public UserModel() {
-        // Default constructor required for calls to DataSnapshot.getValue(User.class)
+    }
+
+    public UserModel(String id, String name, String address, String nic, String password, double accBalance) {
+        this.id = id;
+        this.name = name;
+        this.address = address;
+        this.nic = nic;
+        this.password = password;
+        this.accBalance = accBalance;
     }
 
     public String getId() {
@@ -46,28 +32,28 @@ public class UserModel {
         this.id = id;
     }
 
-    public String getUsername() {
-        return username;
+    public String getName() {
+        return name;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getEmail() {
-        return email;
+    public String getAddress() {
+        return address;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
-    public String getPhone() {
-        return phone;
+    public String getNic() {
+        return nic;
     }
 
-    public void setPhone(String phone) {
-        this.phone = phone;
+    public void setNic(String nic) {
+        this.nic = nic;
     }
 
     public String getPassword() {
@@ -78,11 +64,11 @@ public class UserModel {
         this.password = password;
     }
 
-    public String getAccBalance() {
+    public double getAccBalance() {
         return accBalance;
     }
 
-    public void setAccBalance(String accBalance) {
+    public void setAccBalance(double accBalance) {
         this.accBalance = accBalance;
     }
 }

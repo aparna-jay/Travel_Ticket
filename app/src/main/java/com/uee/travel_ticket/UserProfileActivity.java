@@ -53,17 +53,17 @@ public class UserProfileActivity extends AppCompatActivity {
                 UserModel userProfile = snapshot.getValue(UserModel.class);
 
                 if(userProfile !=null){
-                    String username = userProfile.username;
-                    String type = userProfile.type;
-                    String email = userProfile.email;
-                    String phone = userProfile.phone;
+//                    String username = userProfile.username;
+//                    String type = userProfile.type;
+//                    String email = userProfile.email;
+//                    String phone = userProfile.phone;
                     String password = userProfile.password;
 //                    String username = userProfile.username;
 
-                    userNameT.setText(username);
-                    userTypeT.setText(type);
-                    userEmailT.setText(email);
-                    userPhoneT.setText(phone);
+//                    userNameT.setText(username);
+//                    userTypeT.setText(type);
+//                    userEmailT.setText(email);
+//                    userPhoneT.setText(phone);
                     userPasswordT.setText(password);
 
                 }
@@ -76,7 +76,7 @@ public class UserProfileActivity extends AppCompatActivity {
             }
         });
 
-    }
+ }
 
 
 
