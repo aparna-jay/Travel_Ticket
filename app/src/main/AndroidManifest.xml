@@ -13,9 +13,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Travel_Ticket">
+        <activity
+            android:name=".ForeignRegisterActivity"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".AllJourneysActivity">
 
         </activity>
+
         <activity android:name=".GetLocationActivity" />
         <activity
             android:name=".SplashScreenActivity"
@@ -25,19 +35,13 @@
             android:exported="true" />
         <activity android:name=".UserProfileActivity" />
         <activity android:name=".PaymentInformationActivity" />
-        <activity android:name=".RegistrationActivity" />
-        <activity android:name=".LoginActivity" >
+        <activity android:name=".RegistrationActivity" >
 
         </activity>
+        <activity android:name=".LoginActivity" />
         <activity
             android:name=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
