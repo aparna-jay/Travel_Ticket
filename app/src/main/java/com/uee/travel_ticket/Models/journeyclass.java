@@ -1,51 +1,83 @@
 package com.uee.travel_ticket.Models;
 
 public class journeyclass {
-    String name,start,end;
-    double price;
+  String JourneyID, Date, Time, End, JourneyStatus, PassengerID, PaymentStatus, Start;
 
-
-    public journeyclass(String name, String start, String end, double price) {
-        this.name = name;
-        this.start = start;
-        this.end = end;
-        this.price = price;
+    public String getJourneyID() {
+        return JourneyID;
     }
 
-//    public journeyclass(String name, String start) {
-//        this.name = name;
-//        this.start = start;
-//    }
-
-    public String getName() {
-        return name;
+    public void setJourneyID(String journeyID) {
+        JourneyID = journeyID;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public journeyclass() {
     }
 
-    public String getStart() {
-        return start;
+    public String getDate() {
+        return Date;
     }
 
-    public void setStart(String start) {
-        this.start = start;
+    public void setDate(String date) {
+        Date = date;
+    }
+
+    public String getTime() {
+        return Time;
+    }
+
+    public void setTime(String time) {
+        Time = time;
     }
 
     public String getEnd() {
-        return end;
+        return End;
     }
 
     public void setEnd(String end) {
-        this.end = end;
+        End = end;
     }
 
-    public double getPrice() {
-        return price;
+    public String getJourneyStatus() {
+        return JourneyStatus;
     }
 
-    public void setPrice(double price) {
-        this.price = price;
+    public void setJourneyStatus(String journeyStatus) {
+        JourneyStatus = journeyStatus;
+    }
+
+    public String getPassengerID() {
+        return PassengerID;
+    }
+
+    public void setPassengerID(String passengerID) {
+        PassengerID = passengerID;
+    }
+
+    public String getPaymentStatus() {
+        return PaymentStatus;
+    }
+
+    public void setPaymentStatus(String paymentStatus) {
+        PaymentStatus = paymentStatus;
+    }
+
+    public String getStart() {
+        return Start;
+    }
+
+    public void setStart(String start) {
+        Start = start;
+    }
+
+    public journeyclass(String journeyID, String date, String time, String end, String journeyStatus, String passengerID, String paymentStatus, String start) {
+        JourneyID = journeyID;
+        Date = date;
+        Time = time;
+        End = end;
+        JourneyStatus = journeyStatus;
+        PassengerID = passengerID;
+        PaymentStatus = paymentStatus;
+        Start = start;
     }
 }
