@@ -58,6 +58,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Intent intent1 = new Intent(getApplicationContext(), GetLocationActivity.class);
                 startActivity(intent1);
                 break;
+            case R.id.nav_All_journey:
+                Intent intent6 = new Intent(getApplicationContext(), AllJourneysActivity.class);
+                startActivity(intent6);
+                break;
             case R.id.nav_profile:
                 Intent intent3 = new Intent(getApplicationContext(), UserProfileActivity.class);
                 startActivity(intent3);

@@ -52,15 +52,13 @@ public class UserProfileActivity extends AppCompatActivity {
         });
 
         fUser = FirebaseAuth.getInstance().getCurrentUser();
-        reference = FirebaseDatabase.getInstance().getReference("users");
+        reference = FirebaseDatabase.getInstance().getReference("LocalPassnger");
 //        user = fUser.getUid();
 
         final TextView userNameT = (TextView) findViewById(R.id.username);
-        final TextView userTypeT = (TextView) findViewById(R.id.userType);
-        final TextView userEmailT = (TextView) findViewById(R.id.email);
-        final TextView userPhoneT = (TextView) findViewById(R.id.phone);
+        final TextView userAddressT = (TextView) findViewById(R.id.userAddress);
+        final TextView userNicT = (TextView) findViewById(R.id.nic);
         final TextView userPasswordT = (TextView) findViewById(R.id.password);
-//        final TextView userCPasswordT = (TextView) findViewById(R.id.cpassword);
 
         reference.child(user).addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
@@ -68,18 +66,15 @@ public class UserProfileActivity extends AppCompatActivity {
                 UserModel userProfile = snapshot.getValue(UserModel.class);
 
                 if(userProfile !=null){
-//                    String username = userProfile.username;
-//                    String type = userProfile.type;
-//                    String email = userProfile.email;
-//                    String phone = userProfile.phone;
-                    String password = userProfile.password;
-//                    String username = userProfile.username;
+                     String name = userProfile.name;
+                     String address = userProfile.address;
+                     String nic = userProfile.nic;
+                     String password = userProfile.password;
 
-//                    userNameT.setText(username);
-//                    userTypeT.setText(type);
-//                    userEmailT.setText(email);
-//                    userPhoneT.setText(phone);
-                    userPasswordT.setText(password);
+                     userNameT.setText(name);
+                     userAddressT.setText(address);
+                     userNicT.setText(nic);
+                     userPasswordT.setText(password);
 
                 }
             }
