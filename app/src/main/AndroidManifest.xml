@@ -18,7 +18,9 @@
             android:exported="true" />
         <activity
             android:name=".ForeignRegisterActivity"
-            android:exported="true"></activity>
+            android:exported="true">
+
+        </activity>
         <activity android:name=".AllJourneysActivity"></activity>
         <activity android:name=".GetLocationActivity" />
         <activity

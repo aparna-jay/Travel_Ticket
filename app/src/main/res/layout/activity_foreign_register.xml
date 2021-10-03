@@ -65,24 +65,32 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.248" />
 
+<!--    android:hint="Enter Your Address"-->
+<!--    android:id="@+id/faddress"-->
+
+
     <EditText
         android:id="@+id/faddress"
         android:layout_width="298dp"
         android:layout_height="47dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/rounded_corners"
         android:ems="10"
         android:hint="Enter Your Address"
-        android:inputType="phone"
+        android:inputType="textPersonName"
         android:padding="12dp"
         android:textColor="@color/black"
         android:textSize="19sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.513"
+        app:layout_constraintHorizontal_bias="0.476"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.47" />
+        app:layout_constraintVertical_bias="0.455"
+        tools:ignore="DuplicateIds" />
 
     <Spinner
         android:id="@+id/userSpinner"
@@ -102,7 +110,7 @@
         />
 
     <EditText
-        android:id="@+id/email"
+        android:id="@+id/passportId"
         android:layout_width="298dp"
         android:layout_height="47dp"
         android:layout_marginEnd="56dp"
@@ -137,7 +145,7 @@
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.678" />
+        app:layout_constraintVertical_bias="0.684" />
 
     <EditText
         android:id="@+id/cpassword"
@@ -156,55 +164,22 @@
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.781" />
+        app:layout_constraintVertical_bias="0.795" />
 
     <Button
         android:id="@+id/addUser"
         android:layout_width="177dp"
         android:layout_height="48dp"
+        android:layout_marginTop="16dp"
         android:text="Register"
         android:textSize="19sp"
         android:textStyle="bold"
-        android:layout_marginTop="16dp"
         app:backgroundTint="@android:color/holo_blue_dark"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.857" />
-
-    <TextView
-        android:id="@+id/textView9"
-        android:layout_width="126dp"
-        android:layout_height="38dp"
-        android:layout_marginTop="3dp"
-        android:text="Have an account?"
-        android:textColor="@color/black"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.203"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.941" />
-
-    <Button
-        android:id="@+id/btnpay"
-        android:layout_width="wrap_content"
-        android:layout_height="43dp"
-        android:layout_marginTop="2dp"
-        android:text="Login"
-        android:textColor="@color/purple_500"
-        android:textSize="14sp"
-        android:textStyle="bold"
-        app:backgroundTint="@color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.699"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.942" />
+        app:layout_constraintVertical_bias="0.91" />
 
     <TextView
         android:id="@+id/textView"
