@@ -5,22 +5,29 @@
       <map>
         <entry key="..\:/Travel_Ticket/app/src/main/res/drawable-v24/home_icon.xml" value="0.2755208333333333" />
         <entry key="..\:/Travel_Ticket/app/src/main/res/drawable-v24/ic_baseline_star_rate_24.xml" value="0.2755208333333333" />
+        <entry key="..\:/Travel_Ticket/app/src/main/res/drawable/all_journey_icon.xml" value="0.2755208333333333" />
+        <entry key="..\:/Travel_Ticket/app/src/main/res/layout/activity_all_journeys.xml" value="0.259375" />
         <entry key="..\:/Travel_Ticket/app/src/main/res/layout/activity_credit.xml" value="0.259375" />
         <entry key="..\:/Travel_Ticket/app/src/main/res/layout/activity_foreign_register.xml" value="0.259375" />
+        <entry key="..\:/Travel_Ticket/app/src/main/res/layout/activity_get_location.xml" value="0.259375" />
         <entry key="..\:/Travel_Ticket/app/src/main/res/layout/activity_login.xml" value="0.259375" />
         <entry key="..\:/Travel_Ticket/app/src/main/res/layout/activity_main.xml" value="0.16" />
         <entry key="..\:/Travel_Ticket/app/src/main/res/layout/activity_payment_information.xml" value="0.259375" />
         <entry key="..\:/Travel_Ticket/app/src/main/res/layout/activity_registration.xml" value="0.264" />
         <entry key="..\:/Travel_Ticket/app/src/main/res/layout/activity_splash_screen.xml" value="0.176" />
-        <entry key="..\:/Travel_Ticket/app/src/main/res/layout/activity_user_profile.xml" value="0.2" />
+        <entry key="..\:/Travel_Ticket/app/src/main/res/layout/activity_user_profile.xml" value="0.264" />
         <entry key="..\:/Travel_Ticket/app/src/main/res/layout/fragment_home.xml" value="0.16" />
         <entry key="..\:/Travel_Ticket/app/src/main/res/layout/header.xml" value="0.264" />
         <entry key="..\:/Travel_Ticket/app/src/main/res/layout/my_journey_row.xml" value="0.15833333333333333" />
+        <entry key="..\:/Travel_Ticket/app/src/main/res/layout/spinner_dropdown_item.xml" value="0.259375" />
+        <entry key="..\:/Travel_Ticket/app/src/main/res/layout/spinner_foreign_item.xml" value="0.259375" />
+        <entry key="..\:/Travel_Ticket/app/src/main/res/layout/spinner_foreign_packages.xml" value="0.259375" />
+        <entry key="..\:/Travel_Ticket/app/src/main/res/layout/spinner_item.xml" value="0.259375" />
         <entry key="..\:/Travel_Ticket/app/src/main/res/menu/main_menu.xml" value="0.259375" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">

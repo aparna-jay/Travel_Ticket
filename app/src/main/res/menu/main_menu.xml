@@ -13,7 +13,12 @@
         <item
             android:id="@+id/nav_journey"
             android:icon="@drawable/journey_icon"
-            android:title="Journey" />
+            android:title="My Journey" />
+
+        <item
+            android:id="@+id/nav_All_journey"
+            android:icon="@drawable/all_journey_icon"
+            android:title="All Journeys" />
 
 
     </group>

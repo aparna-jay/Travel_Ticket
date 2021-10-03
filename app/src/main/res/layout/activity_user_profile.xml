@@ -22,6 +22,7 @@
             app:layout_constraintVertical_bias="0.681"
             app:srcCompat="@drawable/formbackground" />
 
+
         <Button
             android:id="@+id/button4"
             android:layout_width="129dp"
@@ -32,8 +33,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.881" />
-
+            app:layout_constraintVertical_bias="0.859" />
 
         <EditText
             android:id="@+id/username"
@@ -44,73 +44,54 @@
             android:hint="Enter Your Name"
             android:inputType="textPersonName"
             android:padding="12dp"
-            android:textColor="@color/black"
+
             android:textSize="19sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.513"
+            app:layout_constraintHorizontal_bias="0.539"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.269" />
+            app:layout_constraintVertical_bias="0.302" />
 
         <EditText
-            android:id="@+id/userType"
+            android:id="@+id/userAddress"
             android:layout_width="298dp"
             android:layout_height="47dp"
             android:layout_marginTop="4dp"
             android:background="@drawable/rounded_corners"
             android:ems="10"
-            android:hint="Enter  User Type"
+            android:hint="Enter  User Address"
             android:inputType="textPersonName"
             android:padding="12dp"
-            android:textColor="@color/black"
+
             android:textSize="19sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.513"
+            app:layout_constraintHorizontal_bias="0.539"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.388" />
+            app:layout_constraintVertical_bias="0.435" />
 
         <EditText
-            android:id="@+id/email"
+            android:id="@+id/nic"
             android:layout_width="298dp"
             android:layout_height="47dp"
-            android:layout_marginEnd="56dp"
-            android:layout_marginRight="56dp"
+            android:layout_marginEnd="52dp"
+            android:layout_marginRight="52dp"
             android:background="@drawable/rounded_corners"
             android:ems="10"
-            android:hint="Enter Email"
+            android:hint="Enter your NIC"
             android:inputType="textPersonName"
             android:padding="12dp"
-            android:textColor="@color/black"
-            android:textSize="19sp"
-            android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.516" />
 
-        <EditText
-            android:id="@+id/phone"
-            android:layout_width="298dp"
-            android:layout_height="47dp"
-            android:background="@drawable/rounded_corners"
-            android:ems="10"
-            android:hint="Enter Contact Number"
-            android:inputType="phone"
-            android:padding="12dp"
-            android:textColor="@color/black"
             android:textSize="19sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.495"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.631" />
+            app:layout_constraintVertical_bias="0.562" />
 
         <EditText
             android:id="@+id/password"
@@ -119,31 +100,31 @@
             android:background="@drawable/rounded_corners"
             android:ems="10"
             android:hint="Enter Password"
-            android:inputType="textPassword"
+            android:inputType="phone"
             android:padding="12dp"
+            android:textSize="19sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.513"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.692" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="98dp"
+            android:layout_height="31dp"
+            android:text="Hello"
             android:textColor="@color/black"
             android:textSize="19sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.495"
+            app:layout_constraintHorizontal_bias="0.578"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.751" />
-
-        <TextView
-        android:id="@+id/textView12"
-        android:layout_width="143dp"
-        android:layout_height="26dp"
-        android:text="Hello"
-        android:textColor="@color/black"
-        android:textSize="19sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.11" />
+            app:layout_constraintVertical_bias="0.199" />
 
         <ImageButton
             android:id="@+id/back"
