@@ -2,7 +2,10 @@ package com.uee.travel_ticket;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ListView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -19,28 +22,26 @@ public class AllJourneysActivity extends AppCompatActivity {
     ListView journeylistView;
     DatabaseReference dbref;
     List<journeyclass> journeyList;
-
+    ImageButton back = (ImageButton) findViewById(R.id.back);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_journeys);
 
-
-
-           // Intent intent = getIntent();
-
-            /*
-             * this line is important
-             * this time we are not getting the reference of a direct node
-             * but inside the node track we are creating a new child with the artist id
-             * and inside that node we will store all the tracks with unique ids
-             * */
-            dbref = FirebaseDatabase.getInstance().getReference("Passenger_Journeys");
+        dbref = FirebaseDatabase.getInstance().getReference("Passenger_Journeys");
 
         journeylistView = (ListView) findViewById(R.id.journeylistView);
 
         journeyList = new ArrayList<>();
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(AllJourneysActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
        }
 
