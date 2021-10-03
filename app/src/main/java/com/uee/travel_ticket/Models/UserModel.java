@@ -11,12 +11,12 @@ public class UserModel {
     public String nic;
     public String password;
     public String accStatus;
-    public double accBalance;
+    public String accBalance;
 
     public UserModel() {
     }
 
-    public UserModel(String id, String name, String address, String nic, String password, double accBalance, String accStatus) {
+    public UserModel(String id, String name, String address, String nic, String password, String accBalance, String accStatus) {
         this.id = id;
         this.name = name;
         this.address = address;
@@ -74,11 +74,11 @@ public class UserModel {
         this.password = password;
     }
 
-    public double getAccBalance() {
+    public String getAccBalance() {
         return accBalance;
     }
 
-    public void setAccBalance(double accBalance) {
+    public void setAccBalance(String accBalance) {
         this.accBalance = accBalance;
     }
 }
