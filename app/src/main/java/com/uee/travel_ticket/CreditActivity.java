@@ -84,7 +84,7 @@ public class CreditActivity extends AppCompatActivity {
 
 
 
-        final TextView userCreditT = (TextView) findViewById(R.id.credit);
+//        final TextView userCreditT = (TextView) findViewById(R.id.credit);
 
         reference.child(user);
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
