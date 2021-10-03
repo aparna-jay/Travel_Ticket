@@ -23,6 +23,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 import java.io.IOException;
 import java.util.List;
@@ -44,6 +45,16 @@ public class GetLocationActivity  extends Activity implements LocationListener {
         enterAddress = (EditText) findViewById(R.id.enterAddress);
         btnGetCurrentLocation = (Button) findViewById(R.id.btnGetCurrentLocation);
         btnGenerateQRCode = (Button) findViewById(R.id.btnGenerateQRCode);
+
+        ImageButton back = (ImageButton) findViewById(R.id.back);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(GetLocationActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
         checkIfLocationIsEnabledOrNot();
 

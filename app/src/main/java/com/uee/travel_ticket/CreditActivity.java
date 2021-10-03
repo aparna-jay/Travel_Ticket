@@ -23,7 +23,9 @@ import android.os.Bundle;
 import android.provider.Settings;
 import android.util.Log;
 import android.view.Display;
+import android.view.View;
 import android.view.WindowManager;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -62,6 +64,16 @@ public class CreditActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_credit);
         qrCodeIV = findViewById(R.id.idIVQrcode);
+
+        ImageButton back = (ImageButton) findViewById(R.id.back);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(CreditActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
