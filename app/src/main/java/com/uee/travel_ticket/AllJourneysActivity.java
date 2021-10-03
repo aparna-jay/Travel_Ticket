@@ -22,12 +22,13 @@ public class AllJourneysActivity extends AppCompatActivity {
     ListView journeylistView;
     DatabaseReference dbref;
     List<journeyclass> journeyList;
-    ImageButton back = (ImageButton) findViewById(R.id.back);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_journeys);
+
+        ImageButton back = (ImageButton) findViewById(R.id.back);
 
         dbref = FirebaseDatabase.getInstance().getReference("Passenger_Journeys");
 
