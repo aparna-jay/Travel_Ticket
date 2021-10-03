@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -91,7 +92,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
                     foreignLogin();
                 }
                 if ( userType.equals("Inspector") ) {
-                    openlogin();
+                    inspectorLogin();
                 }
             }
         });
@@ -160,15 +161,16 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
         final String userEnteredPassword = password.getText().toString().trim();
 
 
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("ForeignPassanger ");
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("ForeignPassanger");
 
         Query checkUser = reference.orderByChild("id").equalTo(userEnteredUsername);
+        Log.e("","" + checkUser);
         checkUser.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
                     String passwordFromDB = dataSnapshot.child(userEnteredUsername).child("password").getValue(String.class);
-
+Log.e("",passwordFromDB);
 
                     if (passwordFromDB.equals(userEnteredPassword)) {
                         Toast.makeText(getApplicationContext(), "valid user", Toast.LENGTH_SHORT).show();
@@ -203,9 +205,9 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
 
         if ( userEnteredUsername.equals("inspector") ) {
             if ( userEnteredPassword.equals("123") ) {
-               // Intent intent = new Intent(getApplicationContext(), NavigationDrawer.class);
-                loggedUser = "admin";
-               // startActivity(intent);
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                loggedUser = "inspector";
+                startActivity(intent);
             }
             else {
                 Toast.makeText(LoginActivity.this, "Invalid Password", Toast.LENGTH_SHORT).show();
