@@ -34,14 +34,14 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        if (savedInstanceState == null) {
-            Intent intent = new Intent(MainActivity.this, SplashScreenActivity.class);
-            startActivity(intent);
-
-//            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-//                    new HomeFragment()).commit();
-//            navigationView.setCheckedItem(R.id.nav_home);
-        }
+//        if (savedInstanceState == null) {
+//            Intent intent = new Intent(MainActivity.this, SplashScreenActivity.class);
+//            startActivity(intent);
+//
+////            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+////                    new HomeFragment()).commit();
+////            navigationView.setCheckedItem(R.id.nav_home);
+//        }
     }
 
     @Override

@@ -42,12 +42,12 @@ public class UserProfileActivity extends AppCompatActivity {
         }
         Log.e("Logged User", user);
 
-        //go to the create account acctivity.
+
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                        new HomeFragment()).commit();
+                Intent intent = new Intent(UserProfileActivity.this, MainActivity.class);
+                startActivity(intent);
             }
         });
 

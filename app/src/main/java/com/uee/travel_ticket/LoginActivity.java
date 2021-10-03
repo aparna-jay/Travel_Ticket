@@ -32,6 +32,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
     public static String userType;
 //    login_to userprofile;
     public static String loggedUser;
+    public String savedInstanceState;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +61,16 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
         usersSpinner.setAdapter(dataAdapterType);
 
 //        userprofile = new login_to();
+
+
+            Intent intent = new Intent(LoginActivity.this, SplashScreenActivity.class);
+            startActivity(intent);
+
+//
+////            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+////                    new HomeFragment()).commit();
+////            navigationView.setCheckedItem(R.id.nav_home);
+
 
         //go to the create account acctivity.
         createAccount.setOnClickListener(new View.OnClickListener() {
