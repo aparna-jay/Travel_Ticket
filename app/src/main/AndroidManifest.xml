@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Travel_Ticket">
-        <activity android:name=".ForeignerWelcomeActivity"></activity>
+        <activity android:name=".ReportPassenger"></activity>
+        <activity android:name=".ForeignerWelcomeActivity" />
         <activity android:name=".SelectUserActivity" />
         <activity android:name=".ForeignerQRCodeActivity" />
         <activity

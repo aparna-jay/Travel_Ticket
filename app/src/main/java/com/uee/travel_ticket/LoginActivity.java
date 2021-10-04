@@ -12,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -28,6 +29,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
 
     Button createAccount, login;
     EditText username, password;
+    TextView tvSignUp;
     DatabaseReference databaseUsers;
     Spinner usersSpinner;
     public static String userType;
@@ -43,6 +45,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
         password = findViewById(R.id.password);
         createAccount = findViewById(R.id.signUp);
         login = findViewById(R.id.login);
+        tvSignUp = findViewById(R.id.textView4);
 
         // spinner element
         usersSpinner = (Spinner) findViewById(R.id.userSpinner);
@@ -92,8 +95,9 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
                     foreignLogin();
                 }
                 if ( userType.equals("Inspector") ) {
-                    createAccount.setVisibility(createAccount.INVISIBLE);;
-                    inspectorLogin();
+                    createAccount.setVisibility(createAccount.INVISIBLE);
+                    tvSignUp.setVisibility(tvSignUp.INVISIBLE);
+                    inspectorLogin1();
                 }
             }
         });
@@ -199,23 +203,48 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
         });
     }
 
-    private void inspectorLogin() {
+    public void inspectorLogin1() {
+
         final String userEnteredUsername = username.getText().toString().trim();
         final String userEnteredPassword = password.getText().toString().trim();
 
-        if ( userEnteredUsername.equals("inspector") ) {
-            if ( userEnteredPassword.equals("123") ) {
-                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
-                loggedUser = "inspector";
-                startActivity(intent);
-            }
-            else {
-                Toast.makeText(LoginActivity.this, "Invalid Password", Toast.LENGTH_SHORT).show();
-            }
-        }
-        else {
-            Toast.makeText(LoginActivity.this, "Invalid Username", Toast.LENGTH_SHORT).show();
-        }
 
+        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("TravelInspector");
+
+        Query checkUser = reference.orderByChild("id").equalTo(userEnteredUsername);
+        Log.e("","" + checkUser);
+        checkUser.addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot.exists()) {
+                    String passwordFromDB = dataSnapshot.child(userEnteredUsername).child("password").getValue(String.class);
+
+                    if (passwordFromDB.equals(userEnteredPassword)) {
+                        Toast.makeText(getApplicationContext(), "valid user", Toast.LENGTH_SHORT).show();
+                        loggedUser = username.getText().toString();
+                        Intent intent = new Intent(LoginActivity.this, ReportPassenger.class);
+                        intent.putExtra("user",username.getText().toString());
+                        startActivity(intent);
+                        finish();
+
+
+                    } else {
+                        password.setError("Invalid Password");
+//                        Toast.makeText(getApplicationContext(), "wrong password", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+
+                }else{
+                    password.setError("Invalid Username");
+//                    Toast.makeText(getApplicationContext(), "No such User exist", Toast.LENGTH_SHORT).show();
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
+
+
 }
