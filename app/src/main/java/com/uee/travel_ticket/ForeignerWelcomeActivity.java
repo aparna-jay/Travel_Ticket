@@ -34,16 +34,6 @@ public class ForeignerWelcomeActivity extends AppCompatActivity {
 
         Button start = (Button) findViewById(R.id.btnGenerateQRCode);
 
-
-
-        start.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(ForeignerWelcomeActivity.this, ForeignerQRCodeActivity.class);
-                startActivity(intent);
-            }
-        });
-
         if (LoginActivity.loggedUser == null){
             user = "null";
         }
@@ -68,6 +58,15 @@ public class ForeignerWelcomeActivity extends AppCompatActivity {
                     String packageName1 = creditBalance.packageName;
 
                     packageName.setText(packageName1);
+
+                    start.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent intent = new Intent(ForeignerWelcomeActivity.this, ForeignerQRCodeActivity.class);
+                            intent.putExtra("packageName", packageName1);
+                            startActivity(intent);
+                        }
+                    });
 
                 }
             }

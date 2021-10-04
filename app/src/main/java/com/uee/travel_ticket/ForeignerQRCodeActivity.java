@@ -54,7 +54,7 @@ public class ForeignerQRCodeActivity extends AppCompatActivity {
     QRGEncoder qrgEncoder;
     Bitmap bitmap;
 
-    String user;
+    String user, packageName;
 
 
     @Override
@@ -62,6 +62,11 @@ public class ForeignerQRCodeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_foreigner_q_r_code);
         qrCodeIV = findViewById(R.id.idIVQrcode);
+
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            this.packageName = extras.getString("packageName");
+        }
 
         Button back = (Button) findViewById(R.id.back);
 
@@ -114,7 +119,7 @@ public class ForeignerQRCodeActivity extends AppCompatActivity {
 
         // setting this dimensions inside our qr code
         // encoder to generate our qr code.
-        qrgEncoder = new QRGEncoder("UserID: " + user, null, QRGContents.Type.TEXT, dimen);
+        qrgEncoder = new QRGEncoder("UserID: " + user + " Package Name: " +packageName, null, QRGContents.Type.TEXT, dimen);
         try {
             // getting our qrcode in the form of bitmap.
             bitmap = qrgEncoder.encodeAsBitmap();
