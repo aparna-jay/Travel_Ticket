@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.ListView;
@@ -20,6 +21,7 @@ import java.util.List;
 
 public class AllJourneysActivity extends AppCompatActivity {
     ListView journeylistView;
+    String user;
     DatabaseReference dbref;
     List<journeyclass> journeyList;
 
@@ -27,6 +29,13 @@ public class AllJourneysActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_all_journeys);
+        if (LoginActivity.loggedUser == null){
+            user = "null";
+        }
+        else {
+            user = LoginActivity.loggedUser;
+        }
+        Log.e("Logged User", user);
 
         ImageButton back = (ImageButton) findViewById(R.id.back);
 
@@ -56,7 +65,10 @@ public class AllJourneysActivity extends AppCompatActivity {
                     journeyList.clear();
                     for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
                         journeyclass track = postSnapshot.getValue(journeyclass.class);
-                        journeyList.add(track);
+                        Log.e("passengerID" , track.getPassengerID());
+                        if(user.equals(track.getPassengerID())) {
+                            journeyList.add(track);
+                        }
                     }
                     JourneyListAdapter trackListAdapter = new JourneyListAdapter(AllJourneysActivity.this, journeyList);
                     journeylistView.setAdapter(trackListAdapter);
