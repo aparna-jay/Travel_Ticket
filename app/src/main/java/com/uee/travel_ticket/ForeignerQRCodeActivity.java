@@ -55,8 +55,7 @@ public class ForeignerQRCodeActivity extends AppCompatActivity {
     Bitmap bitmap;
 
     String user;
-    private FirebaseUser fUser;
-    private DatabaseReference reference;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,33 +86,7 @@ public class ForeignerQRCodeActivity extends AppCompatActivity {
         Log.e("Logged User", user);
 
 
-        fUser = FirebaseAuth.getInstance().getCurrentUser();
-        reference = FirebaseDatabase.getInstance().getReference("users");
 
-
-
-//        final TextView userCreditT = (TextView) findViewById(R.id.credit);
-
-        reference.child(user);
-        reference.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                ForeignUserModel userProfile = snapshot.getValue(ForeignUserModel.class);
-//
-                if (userProfile != null) {
-                    String fPackage = userProfile.packageName;
-                    Log.e("Package Name" , "" + fPackage);
-//                    userCreditT.setText(accBalance);
-                }
-            }
-
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(ForeignerQRCodeActivity.this, "Error!", Toast.LENGTH_SHORT).show();
-
-            }
-        });
         generateQRCode();
     }
 
