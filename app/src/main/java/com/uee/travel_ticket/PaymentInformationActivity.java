@@ -57,14 +57,14 @@ public class PaymentInformationActivity extends AppCompatActivity {
             }
         });
 
-        //go to the next page using an intent
-        addPayment.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(), CreditBalanceActivity.class);
-                startActivity(i);
-            }
-        });
+//        //go to the next page using an intent
+//        addPayment.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent i = new Intent(getApplicationContext(), CreditBalanceActivity.class);
+//                startActivity(i);
+//            }
+//        });
 
 
         ImageButton back = (ImageButton) findViewById(R.id.back);
