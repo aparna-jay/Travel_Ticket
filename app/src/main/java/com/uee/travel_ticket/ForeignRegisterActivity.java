@@ -53,7 +53,7 @@ public class ForeignRegisterActivity extends AppCompatActivity implements Adapte
         password = (TextView) findViewById(R.id.password);
         cpassword = (TextView) findViewById(R.id.cpassword);
         addUser = (Button) findViewById(R.id.addUser);
-        login = (Button) findViewById(R.id.addUser);
+//        login = (Button) findViewById(R.id.addUser);
 
         users = new ArrayList<ForeignUserModel>();
 
@@ -63,13 +63,13 @@ public class ForeignRegisterActivity extends AppCompatActivity implements Adapte
                 addUsers();
             }
         });
-        login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(), LoginActivity.class);
-                startActivity(i);
-            }
-        });
+//        login.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent i = new Intent(getApplicationContext(), LoginActivity.class);
+//                startActivity(i);
+//            }
+//        });
 
 
 
