@@ -39,6 +39,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.zxing.WriterException;
+import com.uee.travel_ticket.Models.ForeignUserModel;
 import com.uee.travel_ticket.Models.UserModel;
 
 import java.io.IOException;
@@ -52,7 +53,6 @@ public class ForeignerQRCodeActivity extends AppCompatActivity {
     private ImageView qrCodeIV;
     QRGEncoder qrgEncoder;
     Bitmap bitmap;
-    String QRCode = "Young People";
 
     String user;
     private FirebaseUser fUser;
@@ -75,7 +75,7 @@ public class ForeignerQRCodeActivity extends AppCompatActivity {
         });
 
 
-        generateQRCode();
+
 
         //get credit details
         if (LoginActivity.loggedUser == null){
@@ -85,6 +85,7 @@ public class ForeignerQRCodeActivity extends AppCompatActivity {
             user = LoginActivity.loggedUser;
         }
         Log.e("Logged User", user);
+
 
         fUser = FirebaseAuth.getInstance().getCurrentUser();
         reference = FirebaseDatabase.getInstance().getReference("users");
@@ -97,13 +98,15 @@ public class ForeignerQRCodeActivity extends AppCompatActivity {
         reference.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-                UserModel userProfile = snapshot.getValue(UserModel.class);
-
+                ForeignUserModel userProfile = snapshot.getValue(ForeignUserModel.class);
+//
                 if (userProfile != null) {
-//                    String accBalance = userProfile.accBalance;
+                    String fPackage = userProfile.packageName;
+                    Log.e("Package Name" , "" + fPackage);
 //                    userCreditT.setText(accBalance);
                 }
             }
+
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
@@ -111,7 +114,7 @@ public class ForeignerQRCodeActivity extends AppCompatActivity {
 
             }
         });
-
+        generateQRCode();
     }
 
     public void generateQRCode(){
@@ -138,7 +141,7 @@ public class ForeignerQRCodeActivity extends AppCompatActivity {
 
         // setting this dimensions inside our qr code
         // encoder to generate our qr code.
-        qrgEncoder = new QRGEncoder(QRCode, null, QRGContents.Type.TEXT, dimen);
+        qrgEncoder = new QRGEncoder("UserID: " + user, null, QRGContents.Type.TEXT, dimen);
         try {
             // getting our qrcode in the form of bitmap.
             bitmap = qrgEncoder.encodeAsBitmap();

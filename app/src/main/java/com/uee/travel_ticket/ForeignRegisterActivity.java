@@ -35,7 +35,7 @@ public class ForeignRegisterActivity extends AppCompatActivity implements Adapte
 
 //    //for spinner
     Spinner usersSpinner;
-    public static String userType;
+    public static String packageName;
 
     @SuppressLint("CutPasteId")
     @Override
@@ -96,7 +96,7 @@ public class ForeignRegisterActivity extends AppCompatActivity implements Adapte
 
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         // On selecting a spinner item
-        userType = parent.getItemAtPosition(position).toString();
+        packageName = parent.getItemAtPosition(position).toString();
     }
     public void onNothingSelected(AdapterView<?> arg0) {
         // TODO Auto-generated method stub
@@ -135,7 +135,7 @@ public class ForeignRegisterActivity extends AppCompatActivity implements Adapte
         //getting the values to save
         String name1 = username.getText().toString().trim();
         String passportID1 = passportId.getText().toString().trim();
-        String packageName = usersSpinner.getSelectedItem().toString();
+        String packageName = ForeignRegisterActivity.packageName;
         String country1 = country.getText().toString().trim();
         String address1 = address.getText().toString().trim();
         String password1 = password.getText().toString().trim();
@@ -149,7 +149,7 @@ public class ForeignRegisterActivity extends AppCompatActivity implements Adapte
             String id = name1;
 
             //creating an Artist Object
-            ForeignUserModel user = new ForeignUserModel(id, name1,passportID1, country1 ,address1,password1);
+            ForeignUserModel user = new ForeignUserModel(id, name1,passportID1, country1 ,address1,password1,packageName);
 
             //Saving the Artist
             databaseUsers.child(id).setValue(user);
