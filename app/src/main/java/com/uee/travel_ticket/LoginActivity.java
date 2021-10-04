@@ -175,7 +175,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
                     if (passwordFromDB.equals(userEnteredPassword)) {
                         Toast.makeText(getApplicationContext(), "valid user", Toast.LENGTH_SHORT).show();
                         loggedUser = username.getText().toString();
-                        Intent intent = new Intent(LoginActivity.this, ForeignerQRCodeActivity.class);
+                        Intent intent = new Intent(LoginActivity.this, ForeignerWelcomeActivity.class);
                         intent.putExtra("user",username.getText().toString());
                         startActivity(intent);
                         finish();

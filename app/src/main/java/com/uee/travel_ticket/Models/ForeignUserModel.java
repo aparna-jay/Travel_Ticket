@@ -11,7 +11,7 @@ public class ForeignUserModel {
     public String country;
     public String password;
 
-    public ForeignUserModel(String id, String name, String passportID, String packageName, String address, String country, String password) {
+    public ForeignUserModel(String id, String name, String passportID, String address, String country, String password, String packageName) {
         this.id = id;
         this.name = name;
         this.passportID = passportID;
