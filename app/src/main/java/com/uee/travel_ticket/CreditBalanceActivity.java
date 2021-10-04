@@ -49,13 +49,6 @@ public class CreditBalanceActivity extends AppCompatActivity {
             }
         });
 
-        pay.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(CreditBalanceActivity.this, PaymentInformationActivity.class);
-                startActivity(intent);
-            }
-        });
 
         if (LoginActivity.loggedUser == null){
             user = "null";
@@ -81,6 +74,15 @@ public class CreditBalanceActivity extends AppCompatActivity {
                     String accBalance = creditBalance.accBalance;
 
                     userAccBalanceT.setText(accBalance);
+
+                    pay.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            Intent intent = new Intent(CreditBalanceActivity.this, PaymentInformationActivity.class);
+                            intent.putExtra("creditBalance", accBalance);
+                            startActivity(intent);
+                        }
+                    });
 
                 }
 

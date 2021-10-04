@@ -31,6 +31,7 @@ public class PaymentInformationActivity extends AppCompatActivity {
     DatabaseReference databaseUsers, updateReference;
     Button addPayment;
     PaymentInfoModel pay1;
+    int creditBalance;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +49,11 @@ public class PaymentInformationActivity extends AppCompatActivity {
         addPayment = (Button) findViewById(R.id.btnpay);
 
         pay = new ArrayList<>();
+
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            this.creditBalance = Integer.parseInt(extras.getString("creditBalance"));
+        }
 
 
         addPayment.setOnClickListener(new View.OnClickListener() {
@@ -149,7 +155,8 @@ public class PaymentInformationActivity extends AppCompatActivity {
     }
 
     private void updateData() {
-        String rAmount1 = rAmount.getText().toString().trim();
+        int rAmount1 = Integer.parseInt(rAmount.getText().toString().trim());
+        int total = rAmount1 + creditBalance;
         String user;
 
         if (LoginActivity.loggedUser == null){
@@ -162,7 +169,7 @@ public class PaymentInformationActivity extends AppCompatActivity {
 
         updateReference = FirebaseDatabase.getInstance().getReference();
         //ref.child("myDb").child("awais@gmailcom").child("leftSpace").setValue("YourDateHere");
-        updateReference.child("LocalPassnger").child(user).child("accBalance").setValue(rAmount1);
+        updateReference.child("LocalPassnger").child(user).child("accBalance").setValue(String.valueOf(total));
 
         //setting edittext to blank again
         cardHoldername.setText("");
