@@ -55,7 +55,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                         new HomeFragment()).commit();
                 break;
             case R.id.nav_journey:
-                Intent intent1 = new Intent(getApplicationContext(), AllJourneysActivity.class);
+                Intent intent1 = new Intent(getApplicationContext(), GetLocationActivity.class);
                 startActivity(intent1);
                 break;
             case R.id.nav_All_journey:

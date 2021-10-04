@@ -123,7 +123,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
                     if (passwordFromDB.equals(userEnteredPassword)) {
                         Toast.makeText(getApplicationContext(), "valid user", Toast.LENGTH_SHORT).show();
                         loggedUser = username.getText().toString();
-                        Intent intent = new Intent(LoginActivity.this, UserProfileActivity.class);
+                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                         intent.putExtra("user",username.getText().toString());
                         startActivity(intent);
                         finish();
@@ -170,12 +170,11 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
                     String passwordFromDB = dataSnapshot.child(userEnteredUsername).child("password").getValue(String.class);
-Log.e("",passwordFromDB);
 
                     if (passwordFromDB.equals(userEnteredPassword)) {
                         Toast.makeText(getApplicationContext(), "valid user", Toast.LENGTH_SHORT).show();
                         loggedUser = username.getText().toString();
-                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                        Intent intent = new Intent(LoginActivity.this, ForeignerQRCodeActivity.class);
                         intent.putExtra("user",username.getText().toString());
                         startActivity(intent);
                         finish();
