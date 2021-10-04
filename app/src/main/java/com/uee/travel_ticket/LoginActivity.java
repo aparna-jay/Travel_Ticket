@@ -92,6 +92,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
                     foreignLogin();
                 }
                 if ( userType.equals("Inspector") ) {
+                    createAccount.setVisibility(createAccount.INVISIBLE);;
                     inspectorLogin();
                 }
             }
@@ -100,7 +101,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
     }
 
     public void openCreateAcount() {
-        Intent i = new Intent(this, RegistrationActivity.class);
+        Intent i = new Intent(this, SelectUserActivity.class);
         startActivity(i);
     }
 
@@ -123,7 +124,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
                     if (passwordFromDB.equals(userEnteredPassword)) {
                         Toast.makeText(getApplicationContext(), "valid user", Toast.LENGTH_SHORT).show();
                         loggedUser = username.getText().toString();
-                        Intent intent = new Intent(LoginActivity.this, UserProfileActivity.class);
+                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                         intent.putExtra("user",username.getText().toString());
                         startActivity(intent);
                         finish();
@@ -170,12 +171,11 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if (dataSnapshot.exists()) {
                     String passwordFromDB = dataSnapshot.child(userEnteredUsername).child("password").getValue(String.class);
-Log.e("",passwordFromDB);
 
                     if (passwordFromDB.equals(userEnteredPassword)) {
                         Toast.makeText(getApplicationContext(), "valid user", Toast.LENGTH_SHORT).show();
                         loggedUser = username.getText().toString();
-                        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                        Intent intent = new Intent(LoginActivity.this, ForeignerQRCodeActivity.class);
                         intent.putExtra("user",username.getText().toString());
                         startActivity(intent);
                         finish();

@@ -25,6 +25,7 @@ import android.util.Log;
 import android.view.Display;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -47,13 +48,11 @@ import java.util.Locale;
 import androidmads.library.qrgenearator.QRGContents;
 import androidmads.library.qrgenearator.QRGEncoder;
 
-public class CreditActivity extends AppCompatActivity {
+public class ForeignerQRCodeActivity extends AppCompatActivity {
     private ImageView qrCodeIV;
     QRGEncoder qrgEncoder;
     Bitmap bitmap;
-//    String QRCode = "Credit balance = 10,000";
-    String QRCode;
-    String address;
+    String QRCode = "Young People";
 
     String user;
     private FirebaseUser fUser;
@@ -62,23 +61,19 @@ public class CreditActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_credit);
+        setContentView(R.layout.activity_foreigner_q_r_code);
         qrCodeIV = findViewById(R.id.idIVQrcode);
 
-        ImageButton back = (ImageButton) findViewById(R.id.back);
+        Button back = (Button) findViewById(R.id.back);
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(CreditActivity.this, MainActivity.class);
+                Intent intent = new Intent(ForeignerQRCodeActivity.this, LoginActivity.class);
                 startActivity(intent);
             }
         });
 
-        Bundle extras = getIntent().getExtras();
-        if (extras != null) {
-            this.address = extras.getString("Address");
-        }
 
         generateQRCode();
 
@@ -112,7 +107,7 @@ public class CreditActivity extends AppCompatActivity {
 
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(CreditActivity.this, "Error!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ForeignerQRCodeActivity.this, "Error!", Toast.LENGTH_SHORT).show();
 
             }
         });
@@ -143,7 +138,7 @@ public class CreditActivity extends AppCompatActivity {
 
         // setting this dimensions inside our qr code
         // encoder to generate our qr code.
-        qrgEncoder = new QRGEncoder(QRCode + address, null, QRGContents.Type.TEXT, dimen);
+        qrgEncoder = new QRGEncoder(QRCode, null, QRGContents.Type.TEXT, dimen);
         try {
             // getting our qrcode in the form of bitmap.
             bitmap = qrgEncoder.encodeAsBitmap();

@@ -13,12 +13,12 @@
         <item
             android:id="@+id/nav_journey"
             android:icon="@drawable/journey_icon"
-            android:title="My Journey" />
+            android:title="Start Journey" />
 
         <item
             android:id="@+id/nav_All_journey"
             android:icon="@drawable/all_journey_icon"
-            android:title="All Journeys" />
+            android:title="Journey history" />
 
 
     </group>
@@ -33,10 +33,10 @@
                     android:icon="@drawable/account_icon"
                     android:title="Profile" />
 
-                <item
-                    android:id="@+id/nav_payment"
-                    android:icon="@drawable/payment_icon"
-                    android:title="Payment" />
+<!--                <item-->
+<!--                    android:id="@+id/nav_payment"-->
+<!--                    android:icon="@drawable/payment_icon"-->
+<!--                    android:title="Payment" />-->
 
                 <item
                     android:id="@+id/nav_acc_balance"
@@ -46,27 +46,27 @@
                 <item
                     android:id="@+id/nav_login"
                     android:icon="@drawable/login_icon"
-                    android:title="Login" />
+                    android:title="Logout" />
 
             </menu>
         </item>
     </group>
 
-    <item android:title="Contact Us">
+<!--    <item android:title="Contact Us">-->
 
-        <menu>
-            <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/share_icon"
-                android:title="Share" />
+<!--        <menu>-->
+<!--            <item-->
+<!--                android:id="@+id/nav_share"-->
+<!--                android:icon="@drawable/share_icon"-->
+<!--                android:title="Share" />-->
 
-            <item
-                android:id="@+id/nav_rate"
-                android:icon="@drawable/ic_baseline_star_rate_24"
-                android:title="Rate" />
+<!--            <item-->
+<!--                android:id="@+id/nav_rate"-->
+<!--                android:icon="@drawable/ic_baseline_star_rate_24"-->
+<!--                android:title="Rate" />-->
 
-        </menu>
+<!--        </menu>-->
 
-    </item>
+<!--    </item>-->
 
 </menu>
