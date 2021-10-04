@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -30,7 +31,7 @@ public class ReportPassenger extends AppCompatActivity {
     String inspectorID;
     TextView tvInspectorID, date, time, tvpassengerID, tvdescription;
     List<ReportPassengerModel> reportPassengers;
-    DatabaseReference databaseReference;
+    DatabaseReference databaseReference, updateReference;
     Button report, back;
 
     @Override
@@ -72,6 +73,7 @@ public class ReportPassenger extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 addComplain();
+                updateData();
             }
         });
 
@@ -129,15 +131,23 @@ public class ReportPassenger extends AppCompatActivity {
             //Saving the Artist
             databaseReference.child(id).setValue(user);
 
-            //setting edittext to blank again
-            tvpassengerID.setText("");
-            tvdescription.setText("");
-
             //displaying a success toast
             Toast.makeText(this, "User added", Toast.LENGTH_LONG).show();
         } else {
             //if the value is not given displaying a toast
             Toast.makeText(this, "Please enter a name", Toast.LENGTH_LONG).show();
         }
+    }
+
+    private void updateData() {
+        String passengerID1 = tvpassengerID.getText().toString().trim();
+        Log.e("", passengerID1);
+        updateReference = FirebaseDatabase.getInstance().getReference();
+        //ref.child("myDb").child("awais@gmailcom").child("leftSpace").setValue("YourDateHere");
+        updateReference.child("LocalPassnger").child(passengerID1).child("accStatus").setValue("hold");
+
+        //setting edittext to blank again
+        tvpassengerID.setText("");
+        tvdescription.setText("");
     }
 }
