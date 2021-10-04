@@ -39,6 +39,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.google.zxing.WriterException;
+import com.uee.travel_ticket.Models.ForeignUserModel;
 import com.uee.travel_ticket.Models.UserModel;
 
 import java.io.IOException;
@@ -52,17 +53,20 @@ public class ForeignerQRCodeActivity extends AppCompatActivity {
     private ImageView qrCodeIV;
     QRGEncoder qrgEncoder;
     Bitmap bitmap;
-    String QRCode = "Young People";
 
-    String user;
-    private FirebaseUser fUser;
-    private DatabaseReference reference;
+    String user, packageName;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_foreigner_q_r_code);
         qrCodeIV = findViewById(R.id.idIVQrcode);
+
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            this.packageName = extras.getString("packageName");
+        }
 
         Button back = (Button) findViewById(R.id.back);
 
@@ -75,7 +79,7 @@ public class ForeignerQRCodeActivity extends AppCompatActivity {
         });
 
 
-        generateQRCode();
+
 
         //get credit details
         if (LoginActivity.loggedUser == null){
@@ -86,32 +90,9 @@ public class ForeignerQRCodeActivity extends AppCompatActivity {
         }
         Log.e("Logged User", user);
 
-        fUser = FirebaseAuth.getInstance().getCurrentUser();
-        reference = FirebaseDatabase.getInstance().getReference("users");
 
 
-
-//        final TextView userCreditT = (TextView) findViewById(R.id.credit);
-
-        reference.child(user);
-        reference.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                UserModel userProfile = snapshot.getValue(UserModel.class);
-
-                if (userProfile != null) {
-//                    String accBalance = userProfile.accBalance;
-//                    userCreditT.setText(accBalance);
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(ForeignerQRCodeActivity.this, "Error!", Toast.LENGTH_SHORT).show();
-
-            }
-        });
-
+        generateQRCode();
     }
 
     public void generateQRCode(){
@@ -138,7 +119,7 @@ public class ForeignerQRCodeActivity extends AppCompatActivity {
 
         // setting this dimensions inside our qr code
         // encoder to generate our qr code.
-        qrgEncoder = new QRGEncoder(QRCode, null, QRGContents.Type.TEXT, dimen);
+        qrgEncoder = new QRGEncoder("UserID: " + user + " Package Name: " +packageName, null, QRGContents.Type.TEXT, dimen);
         try {
             // getting our qrcode in the form of bitmap.
             bitmap = qrgEncoder.encodeAsBitmap();
