@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -27,7 +28,7 @@ public class PaymentInformationActivity extends AppCompatActivity {
 
     TextView cardHoldername, cType, ccNum, cvv, exDate, rAmount, totalAcc;
     List<PaymentInfoModel> pay;
-    DatabaseReference databaseUsers;
+    DatabaseReference databaseUsers, updateReference;
     Button addPayment;
     PaymentInfoModel pay1;
 
@@ -53,6 +54,7 @@ public class PaymentInformationActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 addPaymentInfo();
+                updateData();
 //                databaseUsers = FirebaseDatabase.getInstance().getReference().child("");
 //                databaseUsers.child("").setValue(rAmount.getText().toString().trim());
 
@@ -137,13 +139,6 @@ public class PaymentInformationActivity extends AppCompatActivity {
             //Saving
             databaseUsers.child(id).setValue(pay1);
 
-            //setting edittext to blank again
-            cardHoldername.setText("");
-            cType.setText("");
-            ccNum.setText("");
-            cvv.setText("");
-            exDate.setText("");
-            rAmount.setText("");
 
             //displaying a success toast
             Toast.makeText(this, "Payment Information added successfully!", Toast.LENGTH_LONG).show();
@@ -153,6 +148,30 @@ public class PaymentInformationActivity extends AppCompatActivity {
         }
     }
 
+    private void updateData() {
+        String rAmount1 = rAmount.getText().toString().trim();
+        String user;
+
+        if (LoginActivity.loggedUser == null){
+            user = "null";
+        }
+        else {
+            user = LoginActivity.loggedUser;
+        }
+        Log.e("Logged User", user);
+
+        updateReference = FirebaseDatabase.getInstance().getReference();
+        //ref.child("myDb").child("awais@gmailcom").child("leftSpace").setValue("YourDateHere");
+        updateReference.child("LocalPassnger").child(user).child("accBalance").setValue(rAmount1);
+
+        //setting edittext to blank again
+        cardHoldername.setText("");
+        cType.setText("");
+        ccNum.setText("");
+        cvv.setText("");
+        exDate.setText("");
+        rAmount.setText("");
+    }
 //    private void updatePaymentInfo(){
 //
 //        databaseUsers = FirebaseDatabase.getInstance().getReference().child("credit");
