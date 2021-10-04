@@ -15,9 +15,17 @@
         android:theme="@style/Theme.Travel_Ticket">
         <activity android:name=".ForeignerQRCodeActivity"></activity>
         <activity
+            android:name=".CreditBalanceActivity"
+            android:exported="true" />
+        <activity
             android:name=".ForeignRegisterActivity"
-            android:exported="true"></activity>
-        <activity android:name=".AllJourneysActivity"></activity>
+            android:exported="true" >
+
+        </activity>
+        <activity android:name=".AllJourneysActivity">
+
+        </activity>
+
         <activity android:name=".GetLocationActivity" />
         <activity
             android:name=".SplashScreenActivity"
@@ -27,8 +35,10 @@
             android:exported="true" />
         <activity android:name=".UserProfileActivity" />
         <activity android:name=".PaymentInformationActivity" />
-        <activity android:name=".RegistrationActivity"></activity>
-        <activity android:name=".LoginActivity">
+        <activity android:name=".RegistrationActivity" >
+
+        </activity>
+        <activity android:name=".LoginActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

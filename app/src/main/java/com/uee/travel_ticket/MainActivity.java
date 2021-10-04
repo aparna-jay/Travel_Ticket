@@ -67,11 +67,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 startActivity(intent3);
                 break;
             case R.id.nav_payment:
-                Intent intent4 = new Intent(getApplicationContext(), PaymentInformationActivity.class);
+                Intent intent4 = new Intent(getApplicationContext(), CreditActivity.class);
                 startActivity(intent4);
                 break;
             case R.id.nav_acc_balance:
-                Intent intent5 = new Intent(getApplicationContext(), CreditActivity.class);
+                Intent intent5 = new Intent(getApplicationContext(), CreditBalanceActivity.class);
                 startActivity(intent5);
                 break;
             case R.id.nav_login:
