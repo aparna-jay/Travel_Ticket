@@ -66,10 +66,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Intent intent3 = new Intent(getApplicationContext(), UserProfileActivity.class);
                 startActivity(intent3);
                 break;
-            case R.id.nav_payment:
-                Intent intent4 = new Intent(getApplicationContext(), CreditActivity.class);
-                startActivity(intent4);
-                break;
+//            case R.id.nav_payment:
+//                Intent intent4 = new Intent(getApplicationContext(), CreditActivity.class);
+//                startActivity(intent4);
+//                break;
             case R.id.nav_acc_balance:
                 Intent intent5 = new Intent(getApplicationContext(), CreditBalanceActivity.class);
                 startActivity(intent5);
@@ -78,13 +78,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Intent intent2 = new Intent(getApplicationContext(), LoginActivity.class);
                 startActivity(intent2);
                 break;
-            case R.id.nav_share:
-                Toast.makeText(this, "Share", Toast.LENGTH_SHORT).show();
-
-                break;
-            case R.id.nav_rate:
-                Toast.makeText(this, "send", Toast.LENGTH_SHORT).show();
-                break;
+//            case R.id.nav_share:
+//                Toast.makeText(this, "Share", Toast.LENGTH_SHORT).show();
+//
+//                break;
+//            case R.id.nav_rate:
+//                Toast.makeText(this, "send", Toast.LENGTH_SHORT).show();
+//                break;
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;
