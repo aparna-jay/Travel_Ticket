@@ -114,7 +114,7 @@
         app:layout_constraintVertical_bias="0.719" />
 
     <EditText
-        android:id="@+id/tbEXPDate2"
+        android:id="@+id/tbramount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/rounded_corners"
