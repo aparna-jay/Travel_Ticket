@@ -6,16 +6,16 @@ public class ForeignUserModel {
     public String id;
     public String name;
     public String passportID;
-//    public String packageName;
+    public String packageName;
     public String address;
     public String country;
     public String password;
 
-    public ForeignUserModel(String id, String name, String passportID, String address, String country, String password) {
+    public ForeignUserModel(String id, String name, String passportID, String packageName, String address, String country, String password) {
         this.id = id;
         this.name = name;
         this.passportID = passportID;
-//        this.packageName = packageName;
+        this.packageName = packageName;
         this.address = address;
         this.country = country;
         this.password = password;
@@ -56,13 +56,13 @@ public class ForeignUserModel {
         this.passportID = passportID;
     }
 
-//    public String getPackageName() {
-//        return packageName;
-//    }
-//
-//    public void setPackageName(String packageName) {
-//        this.packageName = packageName;
-//    }
+    public String getPackageName() {
+        return packageName;
+    }
+
+    public void setPackageName(String packageName) {
+        this.packageName = packageName;
+    }
 
     public String getAddress() {
         return address;

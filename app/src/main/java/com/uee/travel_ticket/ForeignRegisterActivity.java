@@ -34,7 +34,7 @@ public class ForeignRegisterActivity extends AppCompatActivity implements Adapte
     UserModel user;
 
 //    //for spinner
-    Spinner usersSpinner;
+    Spinner usersSpinner, packageN;
     public static String userType;
 
     @SuppressLint("CutPasteId")
@@ -49,7 +49,7 @@ public class ForeignRegisterActivity extends AppCompatActivity implements Adapte
         country = (TextView) findViewById(R.id.fcountry);
         passportId = (TextView) findViewById(R.id.passportId);
         address = (TextView) findViewById(R.id.faddress);
-        usersSpinner = (Spinner) findViewById(R.id.userSpinner);
+        packageN = (Spinner) findViewById(R.id.userSpinner);
         password = (TextView) findViewById(R.id.password);
         cpassword = (TextView) findViewById(R.id.cpassword);
         addUser = (Button) findViewById(R.id.addUser);
@@ -63,13 +63,13 @@ public class ForeignRegisterActivity extends AppCompatActivity implements Adapte
                 addUsers();
             }
         });
-        login.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(getApplicationContext(), LoginActivity.class);
-                startActivity(i);
-            }
-        });
+//        login.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent i = new Intent(getApplicationContext(), LoginActivity.class);
+//                startActivity(i);
+//            }
+//        });
 
 
 
@@ -135,11 +135,10 @@ public class ForeignRegisterActivity extends AppCompatActivity implements Adapte
         //getting the values to save
         String name1 = username.getText().toString().trim();
         String passportID1 = passportId.getText().toString().trim();
-        String packageName = usersSpinner.getSelectedItem().toString();
+        String packageName = packageN.getSelectedItem().toString();
         String country1 = country.getText().toString().trim();
         String address1 = address.getText().toString().trim();
         String password1 = password.getText().toString().trim();
-        //       String genre = spinnerGenre.getSelectedItem().toString();
 
         //checking if the value is provided
         if (!TextUtils.isEmpty(name1)) {
@@ -149,7 +148,7 @@ public class ForeignRegisterActivity extends AppCompatActivity implements Adapte
             String id = name1;
 
             //creating an Artist Object
-            ForeignUserModel user = new ForeignUserModel(id, name1,passportID1, country1 ,address1,password1);
+            ForeignUserModel user = new ForeignUserModel(id, name1,passportID1,packageName,address1, country1 ,password1);
 
             //Saving the Artist
             databaseUsers.child(id).setValue(user);
@@ -157,7 +156,7 @@ public class ForeignRegisterActivity extends AppCompatActivity implements Adapte
             //setting edittext to blank again
             username.setText("");
             passportId.setText("");
-            packageName.compareTo("");
+            packageName .compareTo("");
             country.setText("");
             address.setText("");
             password.setText("");
