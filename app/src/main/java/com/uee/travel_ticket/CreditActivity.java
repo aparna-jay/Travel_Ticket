@@ -51,13 +51,8 @@ public class CreditActivity extends AppCompatActivity {
     private ImageView qrCodeIV;
     QRGEncoder qrgEncoder;
     Bitmap bitmap;
-//    String QRCode = "Credit balance = 10,000";
-    String QRCode;
     String address;
-
     String user;
-    private FirebaseUser fUser;
-    private DatabaseReference reference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,8 +75,6 @@ public class CreditActivity extends AppCompatActivity {
             this.address = extras.getString("Address");
         }
 
-        generateQRCode();
-
         //get credit details
         if (LoginActivity.loggedUser == null){
             user = "null";
@@ -91,31 +84,7 @@ public class CreditActivity extends AppCompatActivity {
         }
         Log.e("Logged User", user);
 
-        fUser = FirebaseAuth.getInstance().getCurrentUser();
-        reference = FirebaseDatabase.getInstance().getReference("users");
-
-
-
-//        final TextView userCreditT = (TextView) findViewById(R.id.credit);
-
-        reference.child(user);
-        reference.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                UserModel userProfile = snapshot.getValue(UserModel.class);
-
-                if (userProfile != null) {
-//                    String accBalance = userProfile.accBalance;
-//                    userCreditT.setText(accBalance);
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                Toast.makeText(CreditActivity.this, "Error!", Toast.LENGTH_SHORT).show();
-
-            }
-        });
+        generateQRCode();
 
     }
 
@@ -143,7 +112,7 @@ public class CreditActivity extends AppCompatActivity {
 
         // setting this dimensions inside our qr code
         // encoder to generate our qr code.
-        qrgEncoder = new QRGEncoder(QRCode + address, null, QRGContents.Type.TEXT, dimen);
+        qrgEncoder = new QRGEncoder("User: " + user + " , Location: " + address, null, QRGContents.Type.TEXT, dimen);
         try {
             // getting our qrcode in the form of bitmap.
             bitmap = qrgEncoder.encodeAsBitmap();
