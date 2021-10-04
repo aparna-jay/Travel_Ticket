@@ -25,7 +25,7 @@ import java.util.List;
 
 public class PaymentInformationActivity extends AppCompatActivity {
 
-    TextView cardHoldername, cType, ccNum, cvv, exDate, rAmount;
+    TextView cardHoldername, cType, ccNum, cvv, exDate, rAmount, totalAcc;
     List<PaymentInfoModel> pay;
     DatabaseReference databaseUsers;
     Button addPayment;
@@ -53,6 +53,8 @@ public class PaymentInformationActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 addPaymentInfo();
+//                databaseUsers = FirebaseDatabase.getInstance().getReference().child("");
+//                databaseUsers.child("").setValue(rAmount.getText().toString().trim());
 
             }
         });
@@ -91,7 +93,15 @@ public class PaymentInformationActivity extends AppCompatActivity {
 
                     PaymentInfoModel pay1 = postSnapshot.getValue(PaymentInfoModel.class);
                     pay.add(pay1);
+
+//                    int accBalance = 0;
+//
+//                    int rAmount1 = Integer.parseInt(String.valueOf(rAmount));
+//                    accBalance += rAmount1;
+//                    totalAcc.setText(String.valueOf(accBalance));
+
                 }
+
             }
 
             @Override
@@ -139,7 +149,7 @@ public class PaymentInformationActivity extends AppCompatActivity {
             Toast.makeText(this, "Payment Information added successfully!", Toast.LENGTH_LONG).show();
         } else {
             //if the value is not given displaying a toast
-            Toast.makeText(this, "Please enter a valid card details!", Toast.LENGTH_LONG).show();
+            Toast.makeText(this, "Please enter valid card details!", Toast.LENGTH_LONG).show();
         }
     }
 
