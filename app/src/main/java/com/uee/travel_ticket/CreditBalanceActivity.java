@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -19,12 +20,18 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.uee.travel_ticket.Models.PaymentInfoModel;
 import com.uee.travel_ticket.Models.UserModel;
+
+import java.text.BreakIterator;
 
 public class CreditBalanceActivity extends AppCompatActivity {
     String user;
     private FirebaseUser fUser;
-    private DatabaseReference reference;
+    private DatabaseReference reference, reference1;
+    PaymentInfoModel pay1;
+//    Button buttonUpdate;
+    String rechargeAmount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +67,7 @@ public class CreditBalanceActivity extends AppCompatActivity {
 
         fUser = FirebaseAuth.getInstance().getCurrentUser();
         reference = FirebaseDatabase.getInstance().getReference("LocalPassnger");
+
 //        user = fUser.getUid();
 
         final TextView userAccBalanceT = (TextView) findViewById(R.id.credit);
@@ -75,6 +83,7 @@ public class CreditBalanceActivity extends AppCompatActivity {
                     userAccBalanceT.setText(accBalance);
 
                 }
+
             }
 
             @Override
@@ -83,5 +92,41 @@ public class CreditBalanceActivity extends AppCompatActivity {
 
             }
         });
+
+//        //update
+//        buttonUpdate.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//                reference1 = FirebaseDatabase.getInstance().getReference("credit");
+//                String accBalance1 = accBalance.getText().toString().trim();
+//
+//                //  clearControls();
+//
+//                //checking if the value is provided
+//                if (!TextUtils.isEmpty(accBalance1)) {
+//
+//                    //getting a unique id using push().getKey() method
+//                    //it will create a unique id and we will use it as the Primary Key for our Artist
+//                    String id = accBalance1;
+//
+//                    //creating an Artist Object
+//                    PaymentInfoModel pay1 = new PaymentInfoModel(accBalance1);
+//
+//                    //Saving the Artist
+//                    reference1.child(id).setValue(pay1);
+//
+//                    //setting edittext to blank again
+//                    accBalance.setText("");
+//
+//                    //displaying a success toast
+//                    Toast.makeText(getApplicationContext(), "Successfully Updated", Toast.LENGTH_SHORT).show();
+//                } else {
+//                    //if the value is not given displaying a toast
+//                    Toast.makeText(getApplicationContext(), "Enter valid details!", Toast.LENGTH_SHORT).show();
+//                }
+//            }
+//
+//        });
     }
 }

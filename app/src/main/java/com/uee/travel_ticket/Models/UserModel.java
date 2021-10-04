@@ -13,6 +13,7 @@ public class UserModel {
     public String accStatus;
     public String accBalance;
 
+
     public UserModel() {
     }
 
@@ -24,7 +25,16 @@ public class UserModel {
         this.password = password;
         this.accBalance = accBalance;
         this.accStatus = accStatus;
+
     }
+
+//    public String getRechargeAmount() {
+//        return rechargeAmount;
+//    }
+//
+//    public void setRechargeAmount(String rechargeAmount) {
+//        this.rechargeAmount = rechargeAmount;
+//    }
 
     public String getId() {
         return id;
