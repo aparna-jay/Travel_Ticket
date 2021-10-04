@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -31,11 +32,20 @@ public class CreditBalanceActivity extends AppCompatActivity {
         setContentView(R.layout.activity_credit_balance);
 
         ImageButton back = (ImageButton) findViewById(R.id.back);
+        Button pay = (Button) findViewById(R.id.pay);
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(CreditBalanceActivity.this, MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        pay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(CreditBalanceActivity.this, PaymentInformationActivity.class);
                 startActivity(intent);
             }
         });

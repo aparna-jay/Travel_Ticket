@@ -19,7 +19,7 @@ public class PaymentInformationActivity extends AppCompatActivity {
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(PaymentInformationActivity.this, MainActivity.class);
+                Intent intent = new Intent(PaymentInformationActivity.this, CreditBalanceActivity.class);
                 startActivity(intent);
             }
         });
