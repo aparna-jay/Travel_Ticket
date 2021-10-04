@@ -33,7 +33,7 @@ public class UserProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_user_profile);
 
         ImageButton back = (ImageButton) findViewById(R.id.back);
-
+        Button logout = (Button) findViewById(R.id.logout);
         if (LoginActivity.loggedUser == null){
             user = "null";
         }
@@ -48,6 +48,14 @@ public class UserProfileActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(UserProfileActivity.this, MainActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        logout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(), LoginActivity.class);
+                startActivity(i);
             }
         });
 
