@@ -92,6 +92,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
                     foreignLogin();
                 }
                 if ( userType.equals("Inspector") ) {
+                    createAccount.setVisibility(createAccount.INVISIBLE);;
                     inspectorLogin();
                 }
             }
@@ -100,7 +101,7 @@ public class LoginActivity extends AppCompatActivity implements AdapterView.OnIt
     }
 
     public void openCreateAcount() {
-        Intent i = new Intent(this, RegistrationActivity.class);
+        Intent i = new Intent(this, SelectUserActivity.class);
         startActivity(i);
     }
 

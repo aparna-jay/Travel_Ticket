@@ -25,6 +25,7 @@ import android.util.Log;
 import android.view.Display;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -63,7 +64,7 @@ public class ForeignerQRCodeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_foreigner_q_r_code);
         qrCodeIV = findViewById(R.id.idIVQrcode);
 
-        ImageButton back = (ImageButton) findViewById(R.id.back);
+        Button back = (Button) findViewById(R.id.back);
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
