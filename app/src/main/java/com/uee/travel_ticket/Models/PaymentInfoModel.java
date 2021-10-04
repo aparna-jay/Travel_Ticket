@@ -11,10 +11,11 @@ public class PaymentInfoModel {
     public String cardType;
     public String ccNumber;
     public String cvv;
-    public Date expDate;
+    public String expDate;
     public String rechargeAmount;
 
-    public PaymentInfoModel(String id, String cardHolderName, String cardType, String ccNumber, String cvv, Date expDate, String rechargeAmount) {
+
+    public PaymentInfoModel(String id, String cardHolderName, String cardType, String ccNumber, String cvv, String expDate, String rechargeAmount) {
         this.id = id;
         this.cardHolderName = cardHolderName;
         this.cardType = cardType;
@@ -26,6 +27,7 @@ public class PaymentInfoModel {
 
     public PaymentInfoModel() {
     }
+
 
     public String getId() {
         return id;
@@ -67,11 +69,11 @@ public class PaymentInfoModel {
         this.cvv = cvv;
     }
 
-    public Date getExpDate() {
+    public String getExpDate() {
         return expDate;
     }
 
-    public void setExpDate(Date expDate) {
+    public void setExpDate(String expDate) {
         this.expDate = expDate;
     }
 
