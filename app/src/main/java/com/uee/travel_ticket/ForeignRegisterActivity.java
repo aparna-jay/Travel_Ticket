@@ -60,18 +60,20 @@ public class ForeignRegisterActivity extends AppCompatActivity implements Adapte
         addUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                addUsers();
-            }
+
+                if(validatePassportID(passportId.getText().toString().trim())) {
+                    if(checkIfPasswordsMatch(password.getText().toString().trim(), cpassword.getText().toString().trim())) {
+                        addUsers();
+                    }
+                    else{
+                       Toast.makeText(ForeignRegisterActivity.this, "Passwords do not match", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                else{
+                    Toast.makeText(ForeignRegisterActivity.this, "Passport ID is invalid", Toast.LENGTH_SHORT).show();
+
+                }            }
         });
-//        login.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent i = new Intent(getApplicationContext(), LoginActivity.class);
-//                startActivity(i);
-//            }
-//        });
-
-
 
         // spinner element
         usersSpinner = (Spinner) findViewById(R.id.userSpinner);
@@ -171,4 +173,11 @@ public class ForeignRegisterActivity extends AppCompatActivity implements Adapte
         }
     }
 
+    public static boolean validatePassportID(String passportID){
+        String passportIDPattern = "^(?!^0+$)[a-zA-Z0-9]{3,20}$";
+        return(passportID.matches(passportIDPattern));
+    }
+    public static boolean checkIfPasswordsMatch(String userPassword, String cPassword){
+        return(userPassword.equals(cPassword));
+    }
 }

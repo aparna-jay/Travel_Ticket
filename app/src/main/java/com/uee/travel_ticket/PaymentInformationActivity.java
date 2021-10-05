@@ -59,22 +59,15 @@ public class PaymentInformationActivity extends AppCompatActivity {
         addPayment.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                addPaymentInfo();
-                updateData();
-//                databaseUsers = FirebaseDatabase.getInstance().getReference().child("");
-//                databaseUsers.child("").setValue(rAmount.getText().toString().trim());
-
+                if(validateCVV(cvv.getText().toString().trim())) {
+                    addPaymentInfo();
+                    updateData();
+                }
+                else{
+                    Toast.makeText(PaymentInformationActivity.this, "CVV number is invalid", Toast.LENGTH_SHORT).show();
+                }
             }
         });
-
-//        //go to the next page using an intent
-//        addPayment.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent i = new Intent(getApplicationContext(), CreditBalanceActivity.class);
-//                startActivity(i);
-//            }
-//        });
 
 
         ImageButton back = (ImageButton) findViewById(R.id.back);
@@ -156,7 +149,8 @@ public class PaymentInformationActivity extends AppCompatActivity {
 
     private void updateData() {
         int rAmount1 = Integer.parseInt(rAmount.getText().toString().trim());
-        int total = rAmount1 + creditBalance;
+       int total = getTotalCredits(rAmount1, creditBalance);
+
         String user;
 
         if (LoginActivity.loggedUser == null){
@@ -179,14 +173,14 @@ public class PaymentInformationActivity extends AppCompatActivity {
         exDate.setText("");
         rAmount.setText("");
     }
-//    private void updatePaymentInfo(){
-//
-//        databaseUsers = FirebaseDatabase.getInstance().getReference().child("credit");
-//
-//        UserModel user = new UserModel(id, name, address, nic,password,accBalance, accStatus);
-//        databaseUsers.setValue(rAmount.getText().toString().trim());
-//
-//    }
 
+public static int getTotalCredits(int rechargeAmount, int creditBalance){
+    return rechargeAmount + creditBalance;
+}
+
+public static boolean validateCVV(String cvv){
+        String cvvPattern = "^[0-9]{3,4}$";
+        return(cvv.matches(cvvPattern));
+}
 
 }
