@@ -26,6 +26,11 @@ public class TestNICValidations {
     public void checkNICValidations_extraNumbers_returnsFalse(){
         assertFalse(RegistrationActivity.checkIfNICIsValid("992344567123123"));
     }
+    //Return false if less numbers inserted
+    @Test
+    public void checkNICValidations_lessNumbers_returnsFalse(){
+        assertFalse(RegistrationActivity.checkIfNICIsValid("99234"));
+    }
     //Return false if string is empty
     @Test
     public void checkNICValidations_empty_returnsFalse(){
