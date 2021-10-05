@@ -156,7 +156,8 @@ public class PaymentInformationActivity extends AppCompatActivity {
 
     private void updateData() {
         int rAmount1 = Integer.parseInt(rAmount.getText().toString().trim());
-        int total = rAmount1 + creditBalance;
+       int total = getTotalCredits(rAmount1, creditBalance);
+
         String user;
 
         if (LoginActivity.loggedUser == null){
@@ -188,5 +189,6 @@ public class PaymentInformationActivity extends AppCompatActivity {
 //
 //    }
 
-
-}
+public static int getTotalCredits(int rechargeAmount, int creditBalance){
+    return rechargeAmount + creditBalance;
+}}

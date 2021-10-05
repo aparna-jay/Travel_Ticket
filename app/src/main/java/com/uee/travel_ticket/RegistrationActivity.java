@@ -47,7 +47,17 @@ public class RegistrationActivity extends AppCompatActivity {
         addUser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                addUsers();
+                if(checkIfNICIsValid(nic.getText().toString().trim())) {
+                    if(checkIfPasswordsMatch(password.getText().toString().trim(), cpassword.getText().toString().trim())) {
+                        addUsers();
+                    }
+                    else{
+                        Toast.makeText(RegistrationActivity.this, "Passwords do not match", Toast.LENGTH_SHORT).show();
+                    }
+                }
+                else {
+                    Toast.makeText(RegistrationActivity.this, "NIC is invalid", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         login.setOnClickListener(new View.OnClickListener() {
@@ -133,5 +143,22 @@ public class RegistrationActivity extends AppCompatActivity {
             //if the value is not given displaying a toast
             Toast.makeText(this, "Please enter a name", Toast.LENGTH_LONG).show();
         }
+    }
+
+    public static boolean checkIfNICIsValid(String nic){
+        String pattern1 = "^[0-9]{9}[vVxX]$";
+        String pattern2 = "^[0-9]{12}$";
+
+        if(nic.matches(pattern1) || nic.matches(pattern2)){
+            return true;
+        }
+        else{
+            return false;
+        }
+
+    }
+
+    public static boolean checkIfPasswordsMatch(String userPassword, String cPassword){
+        return(userPassword.equals(cPassword));
     }
 }
